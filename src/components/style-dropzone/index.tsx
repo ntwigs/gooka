@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { useDropzone } from 'react-dropzone'
-import { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { Box, Sizes } from '../box'
 
@@ -36,8 +35,6 @@ const Input = styled.input`
 export const Dropzone = () => {
   const [file, setFile] = useState('')
   const [isActive, setActive] = useState(false)
-
-  console.log(file)
 
   return (
     <Box marginBottom={Sizes.m}>
