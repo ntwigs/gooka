@@ -1,0 +1,22 @@
+import * as React from 'react'
+import { Box, Sizes } from '../box'
+
+type HeaderProps = {
+  title: string
+  subtitle: string
+}
+
+// const SectionHeaderContainer = styled.div`
+//   padding: 25px 50px;
+// `
+
+export const SectionHeader = ({ title, subtitle }: HeaderProps) => {
+  return (
+    <Box marginBottom={Sizes.l} marginTop={Sizes.l}>
+      <Box marginBottom={Sizes.s}>
+        <h3>{title}</h3>
+      </Box>
+      <p>{subtitle}</p>
+    </Box>
+  )
+}
