@@ -6,10 +6,6 @@ type HeaderProps = {
   subtitle: string
 }
 
-// const SectionHeaderContainer = styled.div`
-//   padding: 25px 50px;
-// `
-
 export const SectionHeader = ({ title, subtitle }: HeaderProps) => {
   return (
     <Box marginBottom={Sizes.l} marginTop={Sizes.l}>
