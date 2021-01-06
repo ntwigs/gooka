@@ -1,17 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Start } from './pages/start'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './theme'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  h1 {
+    color: ${(props) => props.theme.colors.green};
+    font-size: 42px;
+  }
+
+  h2 {
+    color ${(props) => props.theme.colors.grey};
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  h3 {
+    color: ${(props) => props.theme.colors.black};
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 14px;
+    color: ${(props) => props.theme.colors.grey};
+  }
+`
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Start />
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  document.getElementById('root'),
+)
