@@ -2,6 +2,9 @@ import * as React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { Box, Sizes } from '../box'
+import { useDispatch } from 'react-redux'
+import { setStyle } from '../../redux/actions/style'
+import { getInfo, getStyleInfo } from '../../utils/get-file-info'
 
 type DropzoneProps = {
   isActive?: boolean
@@ -21,7 +24,6 @@ const FileContainer = styled.div<DropzoneProps>`
 `
 
 const Input = styled.input`
-  background: green;
   border: none;
   width: 100%;
   height: 100%;
@@ -33,14 +35,14 @@ const Input = styled.input`
 `
 
 export const Dropzone = () => {
-  const [file, setFile] = useState('')
+  const dispatch = useDispatch()
   const [isActive, setActive] = useState(false)
 
   return (
     <Box marginBottom={Sizes.m}>
       <FileContainer isActive={isActive}>
         <Input
-          value={file}
+          value={''}
           onDragOver={() => {
             setActive(true)
           }}
@@ -55,7 +57,7 @@ export const Dropzone = () => {
           }}
           onChange={(e) => {
             if (e.target.value) {
-              setFile(e.target.value)
+              dispatch(setStyle(getStyleInfo(e.target.value)))
             }
           }}
         />
