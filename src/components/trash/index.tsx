@@ -1,12 +1,16 @@
+import * as React from 'react'
 import trash from '../../assets/delete.svg'
 import styled from 'styled-components'
 
 const TrashImage = styled.img`
-  fill: white;
-  color: white;
-  stroke: white;
+  cursor: pointer;
+  pointer-events: all;
 `
 
-export const Trash = () => (
-  <TrashImage src={trash} alt="Remove file from list" />
+type TrashProps = {
+  onClick: () => void
+}
+
+export const Trash = ({ onClick }: TrashProps) => (
+  <TrashImage onClick={onClick} src={trash} alt="Remove file from list" />
 )
