@@ -1,3 +1,4 @@
+import * as React from 'react'
 import remove from '../../assets/remove.svg'
 import styled from 'styled-components'
 
