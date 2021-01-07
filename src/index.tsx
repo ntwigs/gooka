@@ -4,6 +4,8 @@ import { Start } from './pages/start'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
 import { createGlobalStyle } from 'styled-components'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -37,10 +39,12 @@ const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Start />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Start />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 )
