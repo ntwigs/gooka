@@ -19,7 +19,7 @@ const FileContainer = styled.div<DropzoneProps>`
   border: 1px dotted ${(props) => props.theme.colors.light};
   align-items: center;
   opacity: ${(props) => (props.isActive ? 0.5 : 1)};
-  height: 69px;
+  height: 67px;
   position: relative;
 `
 
