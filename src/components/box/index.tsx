@@ -24,6 +24,7 @@ const sizes: SizeProps = {
 }
 
 export const Box = styled.div<BoxProps>`
+  min-width: 0;
   margin-top: ${({ marginTop }) => (marginTop ? sizes[marginTop] : 0)}px;
   margin-right: ${({ marginRight }) =>
     marginRight ? sizes[marginRight] : 0}px;
