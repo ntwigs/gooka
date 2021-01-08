@@ -24,6 +24,16 @@ const FileContainer = styled.div`
   align-items: center;
 `
 
+const Path = styled.p`
+  font-size: 14px;
+  color: #4f4f4f;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  direction: rtl;
+  text-align: left;
+  white-space: nowrap;
+`
+
 export const File = ({ name, path, id, fileType }: FileProps) => {
   const dispatch = useDispatch()
   const remove = () =>
@@ -32,11 +42,11 @@ export const File = ({ name, path, id, fileType }: FileProps) => {
   return (
     <Box marginBottom={Sizes.m}>
       <FileContainer>
-        <Box>
+        <Box marginRight={Sizes.m}>
           <Box marginBottom={Sizes.s}>
             <h3>{name}</h3>
           </Box>
-          <p>{path}</p>
+          <Path>{path}</Path>
         </Box>
         <Trash onClick={remove} />
       </FileContainer>
