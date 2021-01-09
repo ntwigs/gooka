@@ -11,9 +11,13 @@ import { ResultHeaderSection } from '../../components/result-header-section'
 import { UnnecessaryClassname } from '../../components/unnecessary-classname'
 import { StyleDropzone } from '../../components/style-dropzone'
 import { FileDropzone } from '../../components/file-dropzone'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getFiles } from '../../redux/selectors/files'
 import { getStyle } from '../../redux/selectors/style'
+import { Button } from '../../components/button'
+import { resetFiles } from '../../redux/actions/files'
+import { useState, useEffect } from 'react'
+import { ipcRenderer } from '../../utils/ipcRender'
 
 const StyleSection = () => {
   const { style } = useSelector(getStyle)
@@ -62,17 +66,40 @@ const FileRenderSection = () => {
   )
 }
 
-// React.useEffect(() => {
-//   console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+const useClassnames = () => {
+  const [classnames, setClassnames] = useState<any>([])
 
-//   ipcRenderer.on('asynchronous-reply', (event: any, arg: any) => {
-//     console.log(arg) // prints "pong"
-//   })
+  useEffect(() => {
+    ipcRenderer.on('asynchronous-reply', (_: any, arg: any) => {
+      if (Array.isArray(arg) && arg.length > 0) {
+        setClassnames(arg)
+      }
+    })
+  }, [])
 
-//   ipcRenderer.send('asynchronous-message', 'ping')
-// }, [])
+  return classnames
+}
+
+const useCompare = () => {
+  const files = useSelector(getFiles).files
+  const style = useSelector(getStyle).style
+
+  return () => {
+    const hasFiles = Array.isArray(files) && files.length > 0
+    const hasStyle = style.name && style.path
+
+    if (hasFiles && hasStyle) {
+      ipcRenderer.send('asynchronous-message', { files, style })
+    }
+  }
+}
 
 export const Start = () => {
+  const classnames = useClassnames()
+  const dispatch = useDispatch()
+  const reset = () => dispatch(resetFiles())
+  const compare = useCompare()
+
   return (
     <Section>
       <HeaderSection>
@@ -82,6 +109,12 @@ export const Start = () => {
         <FileSection>
           <StyleSection />
           <FileRenderSection />
+          <Box marginRight={Sizes.m}>
+            <Button onClick={compare}>Compare</Button>
+          </Box>
+          <Button apperance="warning" onClick={reset}>
+            Reset
+          </Button>
         </FileSection>
       </Box>
       <ResultHeaderSection>
@@ -90,10 +123,9 @@ export const Start = () => {
       <Box marginLeft={Sizes.xl} marginRight={Sizes.xl}>
         <ResultSection>
           <Box marginBottom={Sizes.l} marginTop={Sizes.l}>
-            <UnnecessaryClassname name=".murderRed" />
-            <UnnecessaryClassname name=".greenHavoc" />
-            <UnnecessaryClassname name=".marginTest" />
-            <UnnecessaryClassname name=".tubeIt" />
+            {classnames.map((name: string) => {
+              return <UnnecessaryClassname key={name} name={name} />
+            })}
           </Box>
         </ResultSection>
       </Box>
