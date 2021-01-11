@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { Box, Sizes } from '../box'
 import { Trash } from '../trash'
 import { useDispatch } from 'react-redux'
-import { removeFile } from '../../redux/actions/files'
-import { removeStyle } from '../../redux/actions/style'
+import { removeFile, removeStyle } from '../../redux/actions/files'
 
 type FileProps = {
   name: string
@@ -37,7 +36,7 @@ const Path = styled.p`
 export const File = ({ name, path, id, fileType }: FileProps) => {
   const dispatch = useDispatch()
   const remove = () =>
-    fileType === 'file' ? dispatch(removeFile(id)) : dispatch(removeStyle())
+    fileType === 'file' ? dispatch(removeFile(id)) : dispatch(removeStyle(id))
 
   return (
     <Box marginBottom={Sizes.m}>
