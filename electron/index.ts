@@ -8,7 +8,7 @@ import { reader } from './reader'
 
 let win: BrowserWindow | null = null
 
-ipcMain.on('asynchronous-message', reader)
+ipcMain.on('analyze-classnames', reader)
 
 function createWindow() {
   win = new BrowserWindow({
