@@ -12,6 +12,7 @@ type BoxProps = {
   marginRight?: Sizes
   marginBottom?: Sizes
   marginLeft?: Sizes
+  row?: boolean
 }
 
 type SizeProps = { [props: string]: number }
@@ -24,6 +25,8 @@ const sizes: SizeProps = {
 }
 
 export const Box = styled.div<BoxProps>`
+  display: flex;
+  flex-direction: ${(props) => (props.row ? 'row' : 'column')};
   min-width: 0;
   margin-top: ${({ marginTop }) => (marginTop ? sizes[marginTop] : 0)}px;
   margin-right: ${({ marginRight }) =>
