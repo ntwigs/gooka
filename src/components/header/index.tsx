@@ -8,12 +8,7 @@ type HeaderProps = {
 
 export const Header = ({ title, subtitle }: HeaderProps) => {
   return (
-    <Box
-      marginBottom={Sizes.xl}
-      marginLeft={Sizes.xl}
-      marginTop={Sizes.xl}
-      marginRight={Sizes.xl}
-    >
+    <Box marginBottom={Sizes.xl} marginTop={Sizes.xl}>
       <Box marginBottom={Sizes.s}>
         <h1>{title}</h1>
       </Box>
