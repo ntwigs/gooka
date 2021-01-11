@@ -1,21 +1,44 @@
 import { AnyAction } from 'redux'
-import { SET_FILES, RESET, REMOVE_FILE } from '../types/files'
+import {
+  SET_FILES,
+  RESET,
+  REMOVE_FILE,
+  REMOVE_STYLE,
+  SET_STYLES,
+} from '../types/files'
 
 const initialState = {
   files: [],
+  styles: [],
 }
 
 export const files = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case SET_FILES: {
+      console.log('', action.payload.content)
       return {
+        ...state,
         files: [...state.files, ...action.payload.content],
       }
     }
     case REMOVE_FILE: {
       const id = action.payload.content
       return {
+        ...state,
         files: state.files.filter((file: any) => file.id !== id),
+      }
+    }
+    case SET_STYLES: {
+      return {
+        ...state,
+        style: action.payload.content,
+      }
+    }
+    case REMOVE_STYLE: {
+      const id = action.payload.content
+      return {
+        ...state,
+        files: state.styles.filter((style: any) => style.id !== id),
       }
     }
     case RESET: {
