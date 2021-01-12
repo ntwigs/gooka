@@ -17,7 +17,6 @@ const initialState = {
 export const files = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case SET_FILES: {
-      console.log('', action.payload.content)
       return {
         ...state,
         files: [...state.files, ...action.payload.content],
