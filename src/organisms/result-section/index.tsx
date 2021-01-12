@@ -1,16 +1,20 @@
 import * as React from 'react'
-import { Box, Sizes } from 'src/components/box'
+import { useSelector } from 'react-redux'
+import { Box, Sizes } from 'src/atoms/box'
 import { Header } from 'src/components/header'
 import { UnnecessaryClassname } from 'src/components/unnecessary-classname'
+import { getClassnames } from 'src/redux/selectors/files'
+import { ClassnameProps } from 'src/redux/types/files'
 import { useClassnames } from './use-classnames'
 
 export const ResultSection = () => {
-  const classnames = useClassnames()
+  useClassnames()
+  const classnames = useSelector(getClassnames)
 
   const Classnames = () => (
     <>
-      {classnames.map((name) => (
-        <UnnecessaryClassname key={name} name={name} />
+      {classnames.map(({ name, id }: ClassnameProps, index: number) => (
+        <UnnecessaryClassname key={id} id={id} name={name} delay={index} />
       ))}
     </>
   )
