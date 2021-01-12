@@ -23,7 +23,7 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   outline: none;
   cursor: pointer;
-  transition: all 250ms;
+  transition: all 50ms;
   pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
   opacity: ${(props) => (props.disabled ? 0.2 : 1)};
 
