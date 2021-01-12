@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { Box, Sizes } from 'src/atoms/box'
+import { NO_ELEMENT } from 'src/utils/no-element'
 import styled from 'styled-components'
 
 type FileContainerProps = {
@@ -34,13 +35,18 @@ const Input = styled.input`
 type DropzoneProps = {
   title: string
   onDrop: (file: string) => void
+  hasMaxFiles: boolean
 }
 
-export const Dropzone = ({ title, onDrop }: DropzoneProps) => {
+export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
   const [isActive, setActive] = useState(false)
   const disable = () => setActive(false)
   const enable = () => setActive(true)
   const EMPTY_STRING = ''
+
+  if (hasMaxFiles) {
+    return NO_ELEMENT
+  }
 
   return (
     <Box marginBottom={Sizes.m}>

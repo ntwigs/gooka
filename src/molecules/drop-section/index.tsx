@@ -13,6 +13,7 @@ type DropSectionProps = {
   onDrop: (file: string) => void
   selector: (state: any) => FileProps[]
   fileType: 'file' | 'style'
+  maxFiles?: number
 }
 
 export const DropSection = ({
@@ -22,8 +23,10 @@ export const DropSection = ({
   onDrop,
   selector,
   fileType,
+  maxFiles,
 }: DropSectionProps) => {
   const files = useSelector(selector)
+  const hasMaxFiles = maxFiles ? files.length >= maxFiles : false
 
   const Files = () => (
     <>
@@ -37,7 +40,7 @@ export const DropSection = ({
     <Box>
       <SectionHeader title={title} subtitle={subtitle} />
       <Files />
-      <Dropzone title={dropTitle} onDrop={onDrop} />
+      <Dropzone title={dropTitle} onDrop={onDrop} hasMaxFiles={hasMaxFiles} />
     </Box>
   )
 }

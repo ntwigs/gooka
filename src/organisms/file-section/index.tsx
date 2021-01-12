@@ -22,6 +22,7 @@ export const FileSection = () => {
           onDrop={onStyleDrop}
           selector={getStyles}
           fileType="style"
+          maxFiles={1}
         />
       </Box>
       <DropSection
