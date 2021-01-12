@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Box, Sizes } from '../box'
+import { Box, Sizes } from '../../atoms/box'
 import { Trash } from '../trash'
 import { useDispatch } from 'react-redux'
 import { removeFile, removeStyle } from '../../redux/actions/files'

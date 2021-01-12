@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Sizes } from 'src/components/box'
+import { Box, Sizes } from 'src/atoms/box'
 import { Header } from 'src/components/header'
 import { ActionSection } from 'src/molecules/action-section'
 import { DropSection } from 'src/molecules/drop-section'
@@ -21,6 +21,7 @@ export const FileSection = () => {
           dropTitle="Drop style here"
           onDrop={onStyleDrop}
           selector={getStyles}
+          fileType="style"
         />
       </Box>
       <DropSection
@@ -29,6 +30,7 @@ export const FileSection = () => {
         dropTitle="Drop files here"
         onDrop={onFileDrop}
         selector={getFiles}
+        fileType="file"
       />
       <ActionSection />
     </Box>

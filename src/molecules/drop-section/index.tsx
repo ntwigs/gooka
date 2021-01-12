@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { Box } from 'src/components/box'
+import { Box } from 'src/atoms/box'
 import { SectionHeader } from 'src/components/section-header'
 import { File } from 'src/components/file'
 import { Dropzone } from '../dropzone'
@@ -12,6 +12,7 @@ type DropSectionProps = {
   dropTitle: string
   onDrop: (file: string) => void
   selector: (state: any) => FileProps[]
+  fileType: 'file' | 'style'
 }
 
 export const DropSection = ({
@@ -20,13 +21,14 @@ export const DropSection = ({
   dropTitle,
   onDrop,
   selector,
+  fileType,
 }: DropSectionProps) => {
   const files = useSelector(selector)
 
   const Files = () => (
     <>
       {files.map(({ id, name, path }: FileProps) => (
-        <File key={id} id={id} name={name} path={path} fileType="file" />
+        <File key={id} id={id} name={name} path={path} fileType={fileType} />
       ))}
     </>
   )

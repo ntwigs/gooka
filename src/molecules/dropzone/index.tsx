@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { Box, Sizes } from 'src/components/box'
+import { Box, Sizes } from 'src/atoms/box'
 import styled from 'styled-components'
 
 type FileContainerProps = {
