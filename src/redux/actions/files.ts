@@ -5,6 +5,8 @@ import {
   REMOVE_STYLE,
   SET_STYLES,
   FileProps,
+  ClassnameProps,
+  SET_CLASSNAMES,
 } from '../types/files'
 
 export const setFiles = (files: FileProps[]) => ({
@@ -35,6 +37,9 @@ export const removeStyle = (id: string) => ({
   payload: { content: id },
 })
 
-export const resetStyle = () => ({
-  type: RESET,
+export const setClassnames = (classnames: ClassnameProps[]) => ({
+  type: SET_CLASSNAMES,
+  payload: {
+    content: classnames,
+  },
 })
