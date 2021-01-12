@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, Sizes } from 'src/atoms/box'
-import { Button } from 'src/components/button'
+import { Button } from 'src/atoms/button'
 import { resetFiles } from 'src/redux/actions/files'
 import { getFiles, getStyles } from 'src/redux/selectors/files'
 import { hasElements } from 'src/utils/has-elements'

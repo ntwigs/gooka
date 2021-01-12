@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Box, Sizes } from 'src/atoms/box'
-import { Header } from 'src/components/header'
+import { Header } from 'src/molecules/header'
 import { ActionSection } from 'src/molecules/action-section'
 import { DropSection } from 'src/molecules/drop-section'
 import { setFiles, setStyles } from 'src/redux/actions/files'

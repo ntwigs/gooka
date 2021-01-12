@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { Remove } from '../remove'
+import { Remove } from '../../atoms/remove'
 
 type ContainerProps = {
   isRemoved?: boolean

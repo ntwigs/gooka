@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { Box } from 'src/atoms/box'
-import { SectionHeader } from 'src/components/section-header'
-import { File } from 'src/components/file'
+import { SectionHeader } from 'src/molecules/section-header'
+import { File } from 'src/molecules/file'
 import { Dropzone } from '../dropzone'
 import { FileProps } from 'src/redux/types/files'
 

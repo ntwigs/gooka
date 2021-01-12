@@ -1,9 +1,10 @@
 import * as React from 'react'
-import styled from 'styled-components'
 import { Box, Sizes } from '../../atoms/box'
-import { Trash } from '../trash'
+import { Trash } from '../../atoms/trash'
 import { useDispatch } from 'react-redux'
 import { removeFile, removeStyle } from '../../redux/actions/files'
+import { Path } from 'src/atoms/path-text'
+import { FileContainer } from 'src/atoms/file-container'
 
 type FileProps = {
   name: string
@@ -11,27 +12,6 @@ type FileProps = {
   id: string
   fileType?: 'file' | 'style'
 }
-
-const FileContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-radius: 10px;
-  background: ${(props) => props.theme.colors.white};
-  flex-direction: row;
-  border: 1px solid ${(props) => props.theme.colors.light};
-  padding: 15px;
-  align-items: center;
-`
-
-const Path = styled.p`
-  font-size: 14px;
-  color: #4f4f4f;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  direction: rtl;
-  text-align: left;
-  white-space: nowrap;
-`
 
 export const File = ({ name, path, id, fileType }: FileProps) => {
   const dispatch = useDispatch()
