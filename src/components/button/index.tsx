@@ -2,6 +2,7 @@ import styled, { DefaultTheme, useTheme } from 'styled-components'
 
 type ButtonProps = {
   apperance?: 'warning' | 'standard'
+  disabled?: boolean
 }
 
 const getBackground = ({ apperance, theme }: any) => {
@@ -22,4 +23,12 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   outline: none;
   cursor: pointer;
+  transition: all 250ms;
+  pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
+  opacity: ${(props) => (props.disabled ? 0.2 : 1)};
+
+  &:hover {
+    transition: all 150ms;
+    transform: scale(1.1);
+  }
 `
