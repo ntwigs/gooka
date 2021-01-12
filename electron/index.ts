@@ -4,55 +4,45 @@ import * as isDev from 'electron-is-dev'
 import installExtension, {
   REACT_DEVELOPER_TOOLS,
 } from 'electron-devtools-installer'
-import { reader } from './reader'
+import { registerEvents } from './events/register-events'
 
-let win: BrowserWindow | null = null
+registerEvents()
 
-ipcMain.on('analyze-classnames', reader)
-
-function createWindow() {
-  win = new BrowserWindow({
+const getBrowserWindow = () => {
+  return new BrowserWindow({
     width: 970,
     height: 700,
     webPreferences: {
       nodeIntegration: true,
     },
   })
+}
 
-  if (isDev) {
-    win.loadURL('http://localhost:3000/index.html')
-  } else {
-    // 'build/index.html'
-    win.loadURL(`file://${__dirname}/../index.html`)
-  }
+const loadURL = (browserWindow: BrowserWindow) => {
+  const devURL = 'http://localhost:3000/index.html'
+  const prodURL = `file://${__dirname}/../index.html`
+  browserWindow.loadURL(isDev ? devURL : prodURL)
+}
 
-  win.on('closed', () => (win = null))
+const setHotReloading = () => {
+  require('electron-reload')(__dirname, {
+    electron: path.join(
+      __dirname,
+      '..',
+      '..',
+      'node_modules',
+      '.bin',
+      'electron',
+    ),
+    forceHardReset: true,
+    hardResetMethod: 'exit',
+  })
+}
 
-  // Hot Reloading
-  if (isDev) {
-    // 'node_modules/.bin/electronPath'
-    require('electron-reload')(__dirname, {
-      electron: path.join(
-        __dirname,
-        '..',
-        '..',
-        'node_modules',
-        '.bin',
-        'electron',
-      ),
-      forceHardReset: true,
-      hardResetMethod: 'exit',
-    })
-  }
-
-  // DevTools
-  installExtension(REACT_DEVELOPER_TOOLS)
-    .then((name) => console.log(`Added Extension:  ${name}`))
-    .catch((err) => console.log('An error occurred: ', err))
-
-  if (isDev) {
-    win.webContents.openDevTools()
-  }
+const createWindow = () => {
+  const browserWindow = getBrowserWindow()
+  loadURL(browserWindow)
+  isDev && setHotReloading()
 }
 
 app.on('ready', createWindow)
@@ -63,8 +53,4 @@ app.on('window-all-closed', () => {
   }
 })
 
-app.on('activate', () => {
-  if (win === null) {
-    createWindow()
-  }
-})
+app.on('activate', createWindow)
