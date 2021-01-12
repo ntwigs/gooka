@@ -1,22 +1,12 @@
 import * as React from 'react'
 import { useState } from 'react'
+import { FadeIn } from 'src/atoms/fade-in'
 import styled, { keyframes } from 'styled-components'
 import { Remove } from '../../atoms/remove'
 
 type ContainerProps = {
   isRemoved?: boolean
 }
-
-const fadeIn = keyframes`
-  from {
-    transform: translateY(25px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-`
 
 const Container = styled.div<ContainerProps>`
   display: flex;
@@ -36,16 +26,6 @@ const Container = styled.div<ContainerProps>`
     transition: all 150ms;
     transform: scale(1.1);
   }
-`
-
-type FadeInProps = {
-  delay: number
-}
-
-const FadeIn = styled.div<FadeInProps>`
-  opacity: 0;
-  animation: ${fadeIn} 500ms cubic-bezier(0.64, 0.57, 0.67, 1.53) forwards;
-  animation-delay: ${({ delay }) => delay}ms;
 `
 
 const Classname = styled.p<ContainerProps>`
@@ -69,7 +49,7 @@ export const UnnecessaryClassname = ({
   const remove = () => setRemoved(!isRemoved)
 
   return (
-    <FadeIn delay={delay * 100}>
+    <FadeIn delay={delay}>
       <Container isRemoved={isRemoved} onClick={remove}>
         <Classname isRemoved={isRemoved}>{name}</Classname>
         <Remove isRemoved={isRemoved} />
