@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Start } from './pages/start'
+import { Start } from './components/pages/start'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
 import { createGlobalStyle } from 'styled-components'

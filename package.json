@@ -1,9 +1,9 @@
 {
   "name": "gooka",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "homepage": ".",
-  "main": "build/electron/index.js",
+  "main": "build/main/index.js",
   "author": "Oscar Nordquist",
   "description": "Find your unnecessary css classes",
   "build": {
@@ -47,8 +47,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "electron-builder install-app-deps",
-    "electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
-    "electron:build": "yarn build && tsc -p electron && electron-builder"
+    "electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p main -w\" \"wait-on http://localhost:3000 && tsc -p main && electron .\"",
+    "electron:build": "yarn build && tsc -p main && electron-builder"
   },
   "eslintConfig": {
     "extends": [

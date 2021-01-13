@@ -5,12 +5,6 @@ export const REMOVE_STYLE = 'REMOVE_STYLE'
 export const RESET = 'RESET'
 export const SET_CLASSNAMES = 'SET_CLASSNAMES'
 
-export type FileProps = {
-  name: string
-  path: string
-  id: string
-}
-
 export type ClassnameProps = {
   name: string
   id: string

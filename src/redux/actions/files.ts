@@ -1,15 +1,15 @@
+import { File } from '../../../common/types/file'
 import {
   RESET,
   SET_FILES,
   REMOVE_FILE,
   REMOVE_STYLE,
   SET_STYLES,
-  FileProps,
   ClassnameProps,
   SET_CLASSNAMES,
 } from '../types/files'
 
-export const setFiles = (files: FileProps[]) => ({
+export const setFiles = (files: File[]) => ({
   type: SET_FILES,
   payload: {
     content: files,
@@ -25,7 +25,7 @@ export const resetFiles = () => ({
   type: RESET,
 })
 
-export const setStyles = (styles: FileProps[]) => ({
+export const setStyles = (styles: File[]) => ({
   type: SET_STYLES,
   payload: {
     content: styles,
