@@ -1,6 +1,6 @@
 import { IpcMainEvent } from 'electron/main'
-import { classnames } from '../models/classname'
-import { file as fileModel } from '../models/file'
+import { classnames } from '../actions/classname'
+import { file as fileModel } from '../actions/file'
 import { File } from '../../common/types/file'
 
 type AnalyzeClassnamesProps = {
