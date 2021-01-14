@@ -7,8 +7,8 @@ registerEvents()
 
 const getBrowserWindow = () => {
   return new BrowserWindow({
-    width: 970,
-    height: 700,
+    width: 850,
+    height: 850,
     webPreferences: {
       nodeIntegration: true,
     },
