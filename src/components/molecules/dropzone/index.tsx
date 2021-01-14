@@ -11,14 +11,14 @@ type FileContainerProps = {
 const FileContainer = styled.div<FileContainerProps>`
   display: flex;
   justify-content: center;
-  border-radius: 10px;
-  background: ${(props) => props.theme.colors.white};
   flex-direction: row;
-  border: 1px dotted ${(props) => props.theme.colors.light};
+  border-radius: 10px;
   align-items: center;
   opacity: ${(props) => (props.isActive ? 0.5 : 1)};
-  height: 67px;
   position: relative;
+  padding: 12px 0;
+  width: 100%;
+  border: 2px dashed ${({ theme }) => theme.colors.light};
 `
 
 const Input = styled.input`
@@ -30,6 +30,10 @@ const Input = styled.input`
   left: 0;
   opacity: 0;
   cursor: pointer;
+`
+
+const DropzoneText = styled.p`
+  color: ${({ theme }) => theme.colors.light};
 `
 
 type DropzoneProps = {
@@ -62,7 +66,7 @@ export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
             if (text) onDrop(text)
           }}
         />
-        <p>{title}</p>
+        <DropzoneText>{title}</DropzoneText>
       </FileContainer>
     </Box>
   )
