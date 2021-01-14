@@ -23,7 +23,7 @@ export const File = ({ name, path, id, fileType }: FileProps) => {
       <FileContainer>
         <Box marginRight={Sizes.m}>
           <Box marginBottom={Sizes.s}>
-            <h3>{name}</h3>
+            <h2>{name}</h2>
           </Box>
           <Path>{path}</Path>
         </Box>
