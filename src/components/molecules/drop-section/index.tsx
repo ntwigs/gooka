@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { Box } from '../../atoms/box'
 import { File as FileProps } from '../../../../common/types/file'
 import { Dropzone } from '../dropzone'
-import { SectionHeader } from '../section-header'
 import { File } from '../file'
+import { Header } from '../header'
 
 type DropSectionProps = {
   title: string
@@ -38,7 +38,7 @@ export const DropSection = ({
 
   return (
     <Box>
-      <SectionHeader title={title} subtitle={subtitle} />
+      <Header title={title} subtitle={subtitle} />
       <Files />
       <Dropzone title={dropTitle} onDrop={onDrop} hasMaxFiles={hasMaxFiles} />
     </Box>
