@@ -16,19 +16,20 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     color: ${(props) => props.theme.colors.green};
-    font-size: 42px;
+    font-size: 25px;
   }
 
   h2 {
-    color ${(props) => props.theme.colors.grey};
+    color ${(props) => props.theme.colors.green};
     font-size: 18px;
     font-weight: normal;
   }
 
   h3 {
-    color: ${(props) => props.theme.colors.black};
-    font-size: 18px;
-    font-weight: bold;
+    color: ${(props) => props.theme.colors.grey};
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 10px;
   }
 
   p {
