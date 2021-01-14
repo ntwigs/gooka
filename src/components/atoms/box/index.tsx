@@ -5,6 +5,7 @@ export enum Sizes {
   m,
   l,
   xl,
+  spacing,
 }
 
 type BoxProps = {
@@ -13,6 +14,7 @@ type BoxProps = {
   marginBottom?: Sizes
   marginLeft?: Sizes
   row?: boolean
+  grow?: boolean
 }
 
 type SizeProps = { [props: string]: number }
@@ -22,10 +24,12 @@ const sizes: SizeProps = {
   [Sizes.m]: 15,
   [Sizes.l]: 25,
   [Sizes.xl]: 50,
+  [Sizes.spacing]: 40,
 }
 
 export const Box = styled.div<BoxProps>`
   display: flex;
+  flex-grow: ${({ grow }) => (grow ? 1 : 0)};
   flex-direction: ${(props) => (props.row ? 'row' : 'column')};
   min-width: 0;
   margin-top: ${({ marginTop }) => (marginTop ? sizes[marginTop] : 0)}px;
