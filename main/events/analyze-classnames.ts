@@ -1,6 +1,7 @@
 import { IpcMainEvent } from 'electron/main'
 import { classnames } from '../actions/classname'
 import { file as fileModel } from '../actions/file'
+import { classnames as classnameModel } from '../actions/classname'
 import { File } from '../../common/types/file'
 
 type AnalyzeClassnamesProps = {
@@ -9,7 +10,8 @@ type AnalyzeClassnamesProps = {
 }
 
 const getClasses = (file: File) => {
-  const { getPath, getContent, getClassnames, getCleanClassnames } = fileModel
+  const { getPath, getContent } = fileModel
+  const { getClassnames, getCleanClassnames } = classnameModel
   const path = getPath(file)
   const content = getContent(path)
   const classnames = getClassnames(content)
