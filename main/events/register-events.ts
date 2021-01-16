@@ -1,7 +1,7 @@
 import { ipcMain } from 'electron'
 import { IpcMainEvent } from 'electron/main'
 import { File } from '../../common/types/file'
-import { analyzeClassnames } from './analyze-classnames'
+import { analyzeClassnames } from '../controllers/analyze-classnames'
 
 type RegisterProps<T> = {
   event: string
