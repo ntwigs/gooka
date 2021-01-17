@@ -8,4 +8,5 @@ export const Path = styled.p`
   direction: rtl;
   text-align: left;
   white-space: nowrap;
+  padding-top: 4px;
 `
