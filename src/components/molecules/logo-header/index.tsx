@@ -5,7 +5,7 @@ import { Logo } from '../../atoms/logo'
 const LogoHeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  height: 156px;
+  min-height: 156px;
   padding: 0 40px;
 `
 
