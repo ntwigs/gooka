@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
@@ -8,7 +9,7 @@ type FileContainerProps = {
   isActive?: boolean
 }
 
-const FileContainer = styled.div<FileContainerProps>`
+const FileContainer = styled(motion.div)<FileContainerProps>`
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -54,20 +55,26 @@ export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
 
   return (
     <Box marginBottom={Sizes.m}>
-      <FileContainer isActive={isActive}>
-        <Input
-          value={EMPTY_STRING}
-          onDragOver={enable}
-          onDragLeave={disable}
-          onDrop={disable}
-          onKeyPress={(e) => e.preventDefault()}
-          onChange={(event) => {
-            const text = event.target.value
-            if (text) onDrop(text)
-          }}
-        />
-        <DropzoneText>{title}</DropzoneText>
-      </FileContainer>
+      <motion.div
+        transition={{ duration: 0.2 }}
+        animate={{ opacity: 1, height: 44 }}
+        initial={{ opacity: 0, height: 0 }}
+      >
+        <FileContainer isActive={isActive}>
+          <Input
+            value={EMPTY_STRING}
+            onDragOver={enable}
+            onDragLeave={disable}
+            onDrop={disable}
+            onKeyPress={(e) => e.preventDefault()}
+            onChange={(event) => {
+              const text = event.target.value
+              if (text) onDrop(text)
+            }}
+          />
+          <DropzoneText>{title}</DropzoneText>
+        </FileContainer>
+      </motion.div>
     </Box>
   )
 }

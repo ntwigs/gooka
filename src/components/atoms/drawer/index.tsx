@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const Drawer = styled.div`
+export const Drawer = styled(motion.div)`
   width: 331px;
   height: 100%;
   background: ${({ theme }) => theme.colors.lightGreen};
