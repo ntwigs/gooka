@@ -6,6 +6,7 @@ import { Dropzone } from '../dropzone'
 import { File } from '../file'
 import { Header } from '../header'
 import { AnimatePresence, motion } from 'framer-motion'
+import { variants } from '../../../animations/animation'
 
 type DropSectionProps = {
   title: string
@@ -15,6 +16,7 @@ type DropSectionProps = {
   selector: (state: any) => FileProps[]
   fileType: 'file' | 'style'
   maxFiles?: number
+  delay?: number
 }
 
 export const DropSection = ({
@@ -25,19 +27,26 @@ export const DropSection = ({
   selector,
   fileType,
   maxFiles,
+  delay = 0,
 }: DropSectionProps) => {
   const files = useSelector(selector)
   const hasMaxFiles = maxFiles ? files.length >= maxFiles : false
 
   return (
     <Box>
-      <Header title={title} subtitle={subtitle} />
+      <Header title={title} subtitle={subtitle} delay={delay} />
       <AnimatePresence>
         {files.map(({ id, name, path }: FileProps) => (
           <File key={id} id={id} name={name} path={path} fileType={fileType} />
         ))}
       </AnimatePresence>
-      <Dropzone title={dropTitle} onDrop={onDrop} hasMaxFiles={hasMaxFiles} />
+      <motion.div
+        variants={variants(delay + 0.4)}
+        animate="animate"
+        initial="initial"
+      >
+        <Dropzone title={dropTitle} onDrop={onDrop} hasMaxFiles={hasMaxFiles} />
+      </motion.div>
     </Box>
   )
 }
