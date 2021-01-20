@@ -23,12 +23,6 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   outline: none;
   cursor: pointer;
-  transition: all 500ms;
   pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
   opacity: ${(props) => (props.disabled ? 0.2 : 1)};
-
-  &:hover {
-    transition: all 150ms;
-    transform: scale(1.1);
-  }
 `
