@@ -12,20 +12,12 @@ const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
   background: ${({ theme, isRemoved }) =>
-    isRemoved ? theme.colors.grey : theme.colors.blue};
+    isRemoved ? theme.colors.grey : theme.colors.green};
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   margin-bottom: 10px;
-  transition: all 250ms;
-  transform: scale(1);
-
-  &:hover {
-    cursor: pointer;
-    transition: all 150ms;
-    transform: scale(1.1);
-  }
 `
 
 const Classname = styled.p<ContainerProps>`
