@@ -6,16 +6,18 @@ import { theme } from './theme'
 import { createGlobalStyle } from 'styled-components'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
+import { AnimatedOverlay } from './components/atoms/overlay'
 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }
 
   h1 {
     color: ${(props) => props.theme.colors.green};
+    font-weight: 900;
     font-size: 25px;
   }
 
@@ -43,6 +45,7 @@ ReactDOM.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <AnimatedOverlay />
         <Start />
       </ThemeProvider>
     </Provider>
