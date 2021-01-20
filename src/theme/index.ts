@@ -9,6 +9,6 @@ export const theme: DefaultTheme = {
     white: '#FFFFFF',
     light: '#BDBDBD',
     red: '#F76345',
-    lightGreen: '#FAFFF4',
+    lightGreen: '#E9FFF2',
   },
 }
