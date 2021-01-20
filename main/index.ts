@@ -15,6 +15,10 @@ const getBrowserWindow = () => {
   })
 }
 
+const hideMenu = (browserWindow: BrowserWindow) => {
+  !isDev && browserWindow.setMenu(null)
+}
+
 const loadURL = (browserWindow: BrowserWindow) => {
   const devURL = 'http://localhost:3000/index.html'
   const prodURL = `file://${__dirname}/../index.html`
@@ -38,6 +42,7 @@ const setHotReloading = () => {
 
 const createWindow = () => {
   const browserWindow = getBrowserWindow()
+  hideMenu(browserWindow)
   loadURL(browserWindow)
   isDev && setHotReloading()
 }
