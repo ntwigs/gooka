@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { variants } from '../../../animations/animation'
 import { resetFiles } from '../../../redux/actions/files'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
@@ -19,25 +21,21 @@ export const ActionSection = () => {
   const styles = useSelector(getStyles)
   const dispatch = useDispatch()
   const reset = () => dispatch(resetFiles())
-  const compare = useCompare()
 
   const hasFiles = hasElements(files)
   const hasStyles = hasElements(styles)
 
   return (
     <ActionSectionContainer>
-      <Box marginRight={Sizes.m}>
-        <Button onClick={compare} disabled={!hasFiles || !hasStyles}>
-          Compare
+      <motion.div variants={variants(2.8)} animate="animate" initial="initial">
+        <Button
+          apperance="warning"
+          onClick={reset}
+          disabled={!hasFiles && !hasStyles}
+        >
+          Reset
         </Button>
-      </Box>
-      <Button
-        apperance="warning"
-        onClick={reset}
-        disabled={!hasFiles && !hasStyles}
-      >
-        Reset
-      </Button>
+      </motion.div>
     </ActionSectionContainer>
   )
 }
