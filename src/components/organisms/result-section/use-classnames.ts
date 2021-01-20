@@ -31,6 +31,4 @@ export const useClassnames = () => {
 
   useEffect(removeClassnames, [hasFiles, hasStyles, dispatch])
   useEffect(() => setClassnameEvent(dispatch), [dispatch])
-
-  useEffect(() => {}, [])
 }
