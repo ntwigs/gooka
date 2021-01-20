@@ -7,6 +7,7 @@ import {
   SET_STYLES,
   SET_CLASSNAMES,
 } from '../types/files'
+import { File } from '../../../common/types/file'
 
 const initialState = {
   files: [],
@@ -26,20 +27,22 @@ export const files = (state = initialState, action: AnyAction) => {
       const id = action.payload.content
       return {
         ...state,
-        files: state.files.filter((file: any) => file.id !== id),
+        files: state.files.filter((file: File) => file.id !== id),
       }
     }
     case SET_STYLES: {
+      const [style] = action.payload.content
+
       return {
         ...state,
-        styles: action.payload.content,
+        styles: [style],
       }
     }
     case REMOVE_STYLE: {
       const id = action.payload.content
       return {
         ...state,
-        styles: state.styles.filter((style: any) => style.id !== id),
+        styles: state.styles.filter((style: File) => style.id !== id),
       }
     }
     case SET_CLASSNAMES: {
