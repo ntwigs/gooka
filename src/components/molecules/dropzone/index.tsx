@@ -55,26 +55,20 @@ export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
 
   return (
     <Box marginBottom={Sizes.m}>
-      <motion.div
-        transition={{ duration: 0.2 }}
-        animate={{ opacity: 1, height: 44 }}
-        initial={{ opacity: 0, height: 0 }}
-      >
-        <FileContainer isActive={isActive}>
-          <Input
-            value={EMPTY_STRING}
-            onDragOver={enable}
-            onDragLeave={disable}
-            onDrop={disable}
-            onKeyPress={(e) => e.preventDefault()}
-            onChange={(event) => {
-              const text = event.target.value
-              if (text) onDrop(text)
-            }}
-          />
-          <DropzoneText>{title}</DropzoneText>
-        </FileContainer>
-      </motion.div>
+      <FileContainer isActive={isActive}>
+        <Input
+          value={EMPTY_STRING}
+          onDragOver={enable}
+          onDragLeave={disable}
+          onDrop={disable}
+          onKeyPress={(e) => e.preventDefault()}
+          onChange={(event) => {
+            const text = event.target.value
+            if (text) onDrop(text)
+          }}
+        />
+        <DropzoneText>{title}</DropzoneText>
+      </FileContainer>
     </Box>
   )
 }
