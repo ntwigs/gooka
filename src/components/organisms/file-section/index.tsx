@@ -19,46 +19,26 @@ export const FileSection = () => {
       <LogoHeader />
       <Scroll>
         <Box marginBottom={Sizes.s}>
-          <motion.div
-            transition={{
-              delay: 1,
-              mass: 10,
-              damping: 100,
-              ease: 'easeInOut',
-            }}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          >
-            <DropSection
-              title="Files"
-              subtitle="Drop files to compare with here."
-              dropTitle="Drop style here"
-              onDrop={onStyleDrop}
-              selector={getStyles}
-              fileType="style"
-              maxFiles={1}
-            />
-          </motion.div>
-        </Box>
-        <motion.div
-          transition={{
-            delay: 1.25,
-            mass: 10,
-            damping: 100,
-            ease: 'easeInOut',
-          }}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-        >
           <DropSection
             title="Styles"
-            subtitle="Drop styles to compare with here."
-            dropTitle="Drop files here"
-            onDrop={onFileDrop}
-            selector={getFiles}
-            fileType="file"
+            subtitle="Drop style to compare with here."
+            dropTitle="Drop style here"
+            onDrop={onStyleDrop}
+            selector={getStyles}
+            fileType="style"
+            maxFiles={1}
+            delay={1.5}
           />
-        </motion.div>
+        </Box>
+        <DropSection
+          title="Files"
+          subtitle="Drop files to compare with here."
+          dropTitle="Drop files here"
+          onDrop={onFileDrop}
+          selector={getFiles}
+          fileType="file"
+          delay={2}
+        />
       </Scroll>
       <ActionSection />
     </Drawer>
