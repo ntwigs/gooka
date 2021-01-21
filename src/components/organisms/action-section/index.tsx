@@ -8,7 +8,6 @@ import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
 import { Box, Sizes } from '../../atoms/box'
 import { Button } from '../../atoms/button'
-import { useCompare } from './use-compare'
 
 const ActionSectionContainer = styled.div`
   display: flex;
@@ -28,6 +27,13 @@ export const ActionSection = () => {
   return (
     <ActionSectionContainer>
       <motion.div variants={variants(2.8)} animate="animate" initial="initial">
+        <Box marginRight={Sizes.m}>
+          <Button onClick={reset} disabled={!hasFiles && !hasStyles}>
+            Recompare
+          </Button>
+        </Box>
+      </motion.div>
+      <motion.div variants={variants(3)} animate="animate" initial="initial">
         <Button
           apperance="warning"
           onClick={reset}
