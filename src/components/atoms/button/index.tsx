@@ -17,9 +17,10 @@ export const Button = styled.button<ButtonProps>`
   background: ${getBackground};
   color: ${(props) => props.theme.colors.white};
   border-radius: 10px;
-  padding: 12px 19px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  width: 105px;
+  height: 45px;
+  font-weight: 900;
   border: none;
   outline: none;
   cursor: pointer;
