@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
-import { FadeIn } from '../../atoms/fade-in'
 import { Remove } from '../../atoms/remove'
 
 type ContainerProps = {
@@ -18,6 +17,7 @@ const Container = styled.div<ContainerProps>`
   align-items: center;
   padding: 10px;
   margin-bottom: 10px;
+  flex: 1;
 `
 
 const Classname = styled.p<ContainerProps>`
@@ -41,11 +41,9 @@ export const UnnecessaryClassname = ({
   const remove = () => setRemoved(!isRemoved)
 
   return (
-    <FadeIn delay={delay}>
-      <Container isRemoved={isRemoved} onClick={remove}>
-        <Classname isRemoved={isRemoved}>{name}</Classname>
-        <Remove isRemoved={isRemoved} />
-      </Container>
-    </FadeIn>
+    <Container isRemoved={isRemoved} onClick={remove}>
+      <Classname isRemoved={isRemoved}>{name}</Classname>
+      <Remove isRemoved={isRemoved} />
+    </Container>
   )
 }
