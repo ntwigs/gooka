@@ -3,6 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Logo } from '../../atoms/logo'
 import { variants } from '../../../animations/animation'
+import logo from '../../../assets/gooka_150px.png'
 
 const LogoHeaderContainer = styled.div`
   display: flex;
@@ -21,7 +22,12 @@ const Name = styled(motion.p)`
 export const LogoHeader = () => {
   return (
     <LogoHeaderContainer>
-      <Logo variants={variants(1)} animate={'animate'} initial={'initial'} />
+      <Logo
+        variants={variants(1)}
+        animate={'animate'}
+        initial={'initial'}
+        src={logo}
+      />
       <Name variants={variants(1.1)} animate={'animate'} initial={'initial'}>
         Gooka
       </Name>
