@@ -10,4 +10,8 @@ export const variants = (delay: number) => ({
     y: 22,
     opacity: 0,
   },
+  exit: {
+    y: 22,
+    opacity: 0,
+  },
 })
