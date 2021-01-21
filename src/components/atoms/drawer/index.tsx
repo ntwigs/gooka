@@ -10,5 +10,4 @@ export const Drawer = styled(motion.div)`
   flex-direction: column;
   overflow: hidden;
   padding-right: 5px;
-  padding-left: 5px;
 `
