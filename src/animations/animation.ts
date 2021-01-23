@@ -14,4 +14,14 @@ export const variants = (delay: number) => ({
     y: 22,
     opacity: 0,
   },
+  hover: {
+    scale: 1.1,
+  },
+  click: {
+    scale: 0.9,
+  },
+  disabled: {
+    opacity: 0.2,
+    scale: 1,
+  },
 })
