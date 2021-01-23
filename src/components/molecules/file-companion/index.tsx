@@ -7,6 +7,7 @@ import files from '../../../assets/gooka_files.png'
 import { useHasRendered } from '../../../utils/use-has-rendered'
 import { useWait } from '../../../utils/use-wait'
 import { useText } from './use-text'
+import { Center } from '../../atoms/center'
 
 const Image = styled(motion.img)`
   width: 200px;
@@ -46,33 +47,37 @@ export const FileCompanion = () => {
   const variantTextDelay = hasRendered ? 0.4 : 3.4
 
   return (
-    <Box>
-      <Box marginBottom={Sizes.l}>
-        <Image
-          src={files}
-          variants={variants(variantDelay)}
-          animate="animate"
-          initial="initial"
-          exit="exit"
-        />
-      </Box>
-      <H1
-        variants={variants(variantTitleDelay)}
-        animate={updated}
-        initial="initial"
-        exit="exit"
-        isEmpty={isEmptyValue}
-      >
-        {titleValue}
-      </H1>
-      <H3
-        variants={variants(variantTextDelay)}
-        animate={updated}
-        initial="initial"
-        exit="exit"
-      >
-        {subtitleValue}
-      </H3>
-    </Box>
+    <motion.div exit={{ opacity: 0 }}>
+      <Center>
+        <Box>
+          <Box marginBottom={Sizes.l}>
+            <Image
+              src={files}
+              variants={variants(variantDelay)}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+            />
+          </Box>
+          <H1
+            variants={variants(variantTitleDelay)}
+            animate={updated}
+            initial="initial"
+            exit="exit"
+            isEmpty={isEmptyValue}
+          >
+            {titleValue}
+          </H1>
+          <H3
+            variants={variants(variantTextDelay)}
+            animate={updated}
+            initial="initial"
+            exit="exit"
+          >
+            {subtitleValue}
+          </H3>
+        </Box>
+      </Center>
+    </motion.div>
   )
 }
