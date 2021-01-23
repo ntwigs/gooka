@@ -7,6 +7,7 @@ import { createGlobalStyle } from 'styled-components'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { AnimatedOverlay } from './components/atoms/overlay'
+import { AlertProvider } from './components/molecules/alert/context'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -45,8 +46,10 @@ ReactDOM.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <AnimatedOverlay />
-        <Start />
+        <AlertProvider>
+          <AnimatedOverlay />
+          <Start />
+        </AlertProvider>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
