@@ -6,10 +6,12 @@ import { hasElements } from '../../../utils/has-elements'
 import { Box, Sizes } from '../../atoms/box'
 import { HeaderSpacer } from '../../atoms/header-spacer'
 import { UnnecessaryClassname } from '../../molecules/unnecessary-classname'
-import { useCompare } from '../action-section/use-compare'
+import { useCompare } from './use-compare'
 import { useClassnames } from './use-classnames'
 import { Header } from '../../molecules/header'
 import { FileCompanion } from '../../molecules/file-companion'
+import { Scroll } from '../../atoms/scroll'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export const ResultSection = () => {
   useClassnames()
@@ -18,26 +20,30 @@ export const ResultSection = () => {
   const hasClassnames = hasElements(classnames)
 
   const Classnames = () => (
-    <>
+    <AnimatePresence>
       {classnames.map(({ name, id }: ClassnameProps, index: number) => (
-        <UnnecessaryClassname key={id} id={id} name={name} delay={index} />
+        <UnnecessaryClassname key={index} id={id} name={name} delay={index} />
       ))}
-    </>
+    </AnimatePresence>
   )
 
   return (
-    <Box marginLeft={Sizes.xl} marginRight={Sizes.xl} grow>
-      <HeaderSpacer />
-      {!hasClassnames && <FileCompanion key="filecompanion" />}
-      {hasClassnames && (
-        <div key="classes">
-          <Header
-            title="Unused classnames"
-            subtitle="Found some classnames to remove."
-          />
-          <Classnames />
-        </div>
-      )}
+    <Box grow>
+      <Scroll>
+        <AnimatePresence exitBeforeEnter>
+          {!hasClassnames && <FileCompanion key="filecompanion" />}
+          {hasClassnames && (
+            <motion.div key="classes" exit={{ opacity: 0 }}>
+              <HeaderSpacer />
+              <Header
+                title="Unused classnames"
+                subtitle="Found some classnames to remove."
+              />
+              <Classnames />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Scroll>
     </Box>
   )
 }
