@@ -1,10 +1,11 @@
 import { ipcMain } from 'electron'
 import { IpcMainEvent } from 'electron/main'
 import { File } from '../../common/types/file'
+import { Events } from '../../common/events'
 import { analyzeClassnames } from '../controllers/analyze-classnames'
 
 type RegisterProps<T> = {
-  event: string
+  event: Events
   fn: (event: IpcMainEvent, args: T) => void
 }
 
