@@ -9,9 +9,9 @@ export const useWait = <T>({ value, delay = 0 }: UseWaitProps<T>) => {
   const [_value, setValue] = useState(value)
 
   useEffect(() => {
-    setTimeout(() => {
-      setValue(value)
-    }, delay)
+    const timeout = setTimeout(() => setValue(value), delay)
+
+    return () => clearTimeout(timeout)
   }, [value])
 
   return { value: _value }
