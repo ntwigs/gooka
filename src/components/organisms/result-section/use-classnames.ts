@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import { Dispatch } from 'redux'
-import { setClassnames } from '../../../redux/actions/files'
+import { setClassnames, setIsLoading } from '../../../redux/actions/files'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
 import { ipcRenderer } from '../../../utils/ipcRender'
@@ -14,6 +14,7 @@ const setClassnameEvent = (dispatch: Dispatch) => {
         name: classname,
         id: uuid(),
       }))
+      dispatch(setIsLoading(false))
       dispatch(setClassnames(classnamesWithId))
     }
   })
