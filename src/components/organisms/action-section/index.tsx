@@ -8,7 +8,6 @@ import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
 import { Box, Sizes } from '../../atoms/box'
 import { Button } from '../../atoms/button'
-import { useAlert } from '../../molecules/alert/context'
 import { useReCompare } from './use-recompare'
 
 const ActionSectionContainer = styled.div`
