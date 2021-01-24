@@ -29,8 +29,7 @@ const H3 = styled(motion.h3)`
 `
 
 export const FileCompanion = () => {
-  const DELAY = 1000
-  const hasRendered = useHasRendered()
+  const DELAY = 500
   const { title, subtitle, isEmpty } = useText()
   const { value: isEmptyValue } = useWait<boolean>({
     value: isEmpty,
@@ -42,25 +41,22 @@ export const FileCompanion = () => {
     delay: DELAY,
   })
   const updated = title === titleValue ? 'animate' : 'exit'
-  const variantDelay = hasRendered ? 0 : 3
-  const variantTitleDelay = hasRendered ? 0.2 : 3.2
-  const variantTextDelay = hasRendered ? 0.4 : 3.4
 
   return (
-    <motion.div exit={{ opacity: 0 }}>
-      <Center>
+    <Center>
+      <motion.div exit={{ opacity: 0 }}>
         <Box>
           <Box marginBottom={Sizes.l}>
             <Image
               src={files}
-              variants={variants(variantDelay)}
+              variants={variants()}
               animate="animate"
               initial="initial"
               exit="exit"
             />
           </Box>
           <H1
-            variants={variants(variantTitleDelay)}
+            variants={variants()}
             animate={updated}
             initial="initial"
             exit="exit"
@@ -69,7 +65,7 @@ export const FileCompanion = () => {
             {titleValue}
           </H1>
           <H3
-            variants={variants(variantTextDelay)}
+            variants={variants()}
             animate={updated}
             initial="initial"
             exit="exit"
@@ -77,7 +73,7 @@ export const FileCompanion = () => {
             {subtitleValue}
           </H3>
         </Box>
-      </Center>
-    </motion.div>
+      </motion.div>
+    </Center>
   )
 }
