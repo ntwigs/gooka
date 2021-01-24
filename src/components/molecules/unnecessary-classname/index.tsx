@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useState } from 'react'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
+import { variants } from '../../../animations/animation'
 import { Remove } from '../../atoms/remove'
 
 type ContainerProps = {
@@ -31,37 +32,28 @@ const Classname = styled.p<ContainerProps>`
 
 type UnnecessaryClassnameProps = {
   name: string
-  id: string
-  delay: number
-}
-
-const variants = {
-  exit: {
-    opacity: 0,
-  },
-  hover: {
-    scale: 1.05,
-  },
-  click: {
-    scale: 1,
-  },
 }
 
 export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
+  const theme = useTheme()
   const [isRemoved, setRemoved] = useState(false)
-  const remove = () => setRemoved(!isRemoved)
+
+  const toggleRemoved = () => setRemoved(!isRemoved)
 
   return (
-    <Container
-      isRemoved={isRemoved}
-      onClick={remove}
-      whileHover="hover"
-      whileTap="click"
-      exit="exit"
-      variants={variants}
-    >
-      <Classname isRemoved={isRemoved}>{name}</Classname>
-      <Remove isRemoved={isRemoved} />
-    </Container>
+    <motion.div variants={variants()}>
+      <Container
+        animate={{
+          background: isRemoved ? theme.colors.grey : theme.colors.green,
+        }}
+        whileHover="largeHover"
+        whileTap="largeClick"
+        variants={variants()}
+        onClick={toggleRemoved}
+      >
+        <Classname isRemoved={isRemoved}>{name}</Classname>
+        <Remove isRemoved={isRemoved} />
+      </Container>
+    </motion.div>
   )
 }
