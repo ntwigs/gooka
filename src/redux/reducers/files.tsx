@@ -6,6 +6,7 @@ import {
   REMOVE_STYLE,
   SET_STYLES,
   SET_CLASSNAMES,
+  SET_IS_LOADING,
 } from '../types/files'
 import { File } from '../../../common/types/file'
 
@@ -13,6 +14,7 @@ const initialState = {
   files: [],
   styles: [],
   classnames: [],
+  isLoading: false,
 }
 
 export const files = (state = initialState, action: AnyAction) => {
@@ -49,6 +51,13 @@ export const files = (state = initialState, action: AnyAction) => {
       return {
         ...state,
         classnames: action.payload.content,
+      }
+    }
+    case SET_IS_LOADING: {
+      const isLoading = action.payload.content
+      return {
+        ...state,
+        isLoading,
       }
     }
     case RESET: {
