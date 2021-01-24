@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import { stagger } from '../../../animations/stagger'
 import { ClassnameProps } from '../../../redux/types/files'
 import { HeaderSpacer } from '../../atoms/header-spacer'
-import { useReloading } from '../../organisms/result-section/use-reloading'
 import { Header } from '../header'
 import { UnnecessaryClassname } from '../unnecessary-classname'
+import { useLoading } from './use-loading'
 
 type ClassnamesProps = {
   classnames: ClassnameProps[]
@@ -13,7 +13,7 @@ type ClassnamesProps = {
 
 const Classnames = ({ classnames }: ClassnamesProps) => (
   <>
-    {classnames.map(({ name, id }: ClassnameProps, index: number) => (
+    {classnames.map(({ name }: ClassnameProps, index: number) => (
       <UnnecessaryClassname key={index} name={name} />
     ))}
   </>
@@ -26,7 +26,7 @@ type ClassnamePresentationProps = {
 export const ClassnamePresentation = ({
   classnames,
 }: ClassnamePresentationProps) => {
-  const isReloading = useReloading()
+  const isLoading = useLoading()
   const controls = useAnimation()
 
   useEffect(() => {
@@ -35,12 +35,12 @@ export const ClassnamePresentation = ({
   }, [controls])
 
   useEffect(() => {
-    if (isReloading) {
+    if (isLoading) {
       controls.start('initial').then(() => {
         controls.start('listIn')
       })
     }
-  }, [isReloading, controls])
+  }, [isLoading, controls])
 
   return (
     <motion.div key="classes" exit={{ opacity: 0 }}>
