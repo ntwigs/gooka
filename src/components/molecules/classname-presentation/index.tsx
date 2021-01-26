@@ -1,62 +1,55 @@
-import { useAnimation, motion } from 'framer-motion'
-import React, { useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { stagger } from '../../../animations/stagger'
+import { getClassnames } from '../../../redux/selectors/files'
 import { ClassnameProps } from '../../../redux/types/files'
+import { hasElements } from '../../../utils/has-elements'
 import { HeaderSpacer } from '../../atoms/header-spacer'
 import { Header } from '../header'
 import { UnnecessaryClassname } from '../unnecessary-classname'
-import { useLoading } from './use-loading'
 
-type ClassnamesProps = {
-  classnames: ClassnameProps[]
-}
-
-const Classnames = ({ classnames }: ClassnamesProps) => (
-  <>
-    {classnames.map(({ name }: ClassnameProps, index: number) => (
-      <UnnecessaryClassname key={index} name={name} />
-    ))}
-  </>
-)
-
-type ClassnamePresentationProps = {
-  classnames: ClassnameProps[]
-}
-
-export const ClassnamePresentation = ({
-  classnames,
-}: ClassnamePresentationProps) => {
-  const isLoading = useLoading()
-  const controls = useAnimation()
+const Classnames = () => {
+  const classnames = useSelector(getClassnames)
+  const [_classnames, setClassnames] = useState(classnames)
 
   useEffect(() => {
-    controls.set('initial')
-    controls.start('listIn')
-  }, [controls])
-
-  useEffect(() => {
-    if (isLoading) {
-      controls.start('initial').then(() => {
-        controls.start('listIn')
-      })
+    if (!hasElements(classnames)) {
+      setClassnames([])
     }
-  }, [isLoading, controls])
+
+    setTimeout(() => {
+      setClassnames(classnames)
+    }, 450)
+  }, [classnames])
 
   return (
-    <motion.div key="classes" exit={{ opacity: 0 }}>
+    <AnimatePresence exitBeforeEnter>
+      {hasElements(_classnames) && (
+        <motion.div
+          variants={stagger}
+          animate="listIn"
+          initial="initial"
+          exit="initial"
+        >
+          {_classnames.map(({ name }: ClassnameProps) => (
+            <UnnecessaryClassname key={name} name={name} />
+          ))}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
+export const ClassnamePresentation = () => {
+  return (
+    <motion.div exit={{ opacity: 0 }}>
       <HeaderSpacer />
       <Header
         title="Unused classnames"
         subtitle="Found some classnames to remove."
       />
-      <motion.div
-        variants={stagger}
-        animate={controls}
-        initial="initial"
-        exit="initial"
-      >
-        <Classnames classnames={classnames} />
-      </motion.div>
+      <Classnames />
     </motion.div>
   )
 }
