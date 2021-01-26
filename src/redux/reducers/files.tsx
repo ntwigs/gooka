@@ -6,15 +6,16 @@ import {
   REMOVE_STYLE,
   SET_STYLES,
   SET_CLASSNAMES,
-  SET_IS_LOADING,
+  RESET_CLASSNAMES,
 } from '../types/files'
 import { File } from '../../../common/types/file'
+import { hasElements } from '../../utils/has-elements'
 
 const initialState = {
   files: [],
   styles: [],
   classnames: [],
-  isLoading: false,
+  hasUnusedClassnames: false,
 }
 
 export const files = (state = initialState, action: AnyAction) => {
@@ -48,16 +49,17 @@ export const files = (state = initialState, action: AnyAction) => {
       }
     }
     case SET_CLASSNAMES: {
+      const hasUnusedClassnames = hasElements(action.payload.content)
       return {
         ...state,
         classnames: action.payload.content,
+        hasUnusedClassnames,
       }
     }
-    case SET_IS_LOADING: {
-      const isLoading = action.payload.content
+    case RESET_CLASSNAMES: {
       return {
         ...state,
-        isLoading,
+        classnames: [],
       }
     }
     case RESET: {
