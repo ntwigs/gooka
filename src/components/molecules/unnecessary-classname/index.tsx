@@ -37,7 +37,6 @@ type UnnecessaryClassnameProps = {
 export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
   const theme = useTheme()
   const [isRemoved, setRemoved] = useState(false)
-
   const toggleRemoved = () => setRemoved(!isRemoved)
 
   return (
