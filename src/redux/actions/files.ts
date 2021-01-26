@@ -7,7 +7,7 @@ import {
   SET_STYLES,
   ClassnameProps,
   SET_CLASSNAMES,
-  SET_IS_LOADING,
+  RESET_CLASSNAMES,
 } from '../types/files'
 
 export const setFiles = (files: File[]) => ({
@@ -45,9 +45,6 @@ export const setClassnames = (classnames: ClassnameProps[]) => ({
   },
 })
 
-export const setIsLoading = (isLoading: boolean) => ({
-  type: SET_IS_LOADING,
-  payload: {
-    content: isLoading,
-  },
+export const resetClassnames = () => ({
+  type: RESET_CLASSNAMES,
 })
