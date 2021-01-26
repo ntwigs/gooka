@@ -15,9 +15,7 @@ const setClassnameEvent = (dispatch: Dispatch) => {
         id: uuid(),
       }))
 
-      setTimeout(() => {
-        dispatch(setClassnames(classnamesWithId))
-      }, 250) // Force user to wait for animation
+      dispatch(setClassnames(classnamesWithId))
     }
   })
 }
