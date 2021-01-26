@@ -17,7 +17,7 @@ const FileContainer = styled(motion.div)<FileContainerProps>`
   align-items: center;
   opacity: ${(props) => (props.isActive ? 0.5 : 1)};
   position: relative;
-  padding: 12px 0;
+  padding: 10px 0;
   width: 100%;
   border: 2px dashed ${({ theme }) => theme.colors.light};
 `
