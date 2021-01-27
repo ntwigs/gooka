@@ -50,6 +50,7 @@ export const files = (state = initialState, action: AnyAction) => {
     }
     case SET_CLASSNAMES: {
       const hasUnusedClassnames = hasElements(action.payload.content)
+
       return {
         ...state,
         classnames: action.payload.content,
