@@ -43,6 +43,15 @@ type DropzoneProps = {
   hasMaxFiles: boolean
 }
 
+const variants = {
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+}
+
 export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
   const [isActive, setActive] = useState(false)
   const disable = () => setActive(false)
@@ -54,21 +63,23 @@ export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
   }
 
   return (
-    <Box marginBottom={Sizes.m}>
-      <FileContainer isActive={isActive}>
-        <Input
-          value={EMPTY_STRING}
-          onDragOver={enable}
-          onDragLeave={disable}
-          onDrop={disable}
-          onKeyPress={(e) => e.preventDefault()}
-          onChange={(event) => {
-            const text = event.target.value
-            if (text) onDrop(text)
-          }}
-        />
-        <DropzoneText>{title}</DropzoneText>
-      </FileContainer>
-    </Box>
+    <motion.div variants={variants} animate="in" exit="out" initial="out">
+      <Box marginBottom={Sizes.m}>
+        <FileContainer isActive={isActive}>
+          <Input
+            value={EMPTY_STRING}
+            onDragOver={enable}
+            onDragLeave={disable}
+            onDrop={disable}
+            onKeyPress={(e) => e.preventDefault()}
+            onChange={(event) => {
+              const text = event.target.value
+              if (text) onDrop(text)
+            }}
+          />
+          <DropzoneText>{title}</DropzoneText>
+        </FileContainer>
+      </Box>
+    </motion.div>
   )
 }
