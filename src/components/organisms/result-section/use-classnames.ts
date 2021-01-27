@@ -9,14 +9,12 @@ import { ipcRenderer } from '../../../utils/ipcRender'
 
 const setClassnameEvent = (dispatch: Dispatch) => {
   ipcRenderer.on('analyze-classnames', (_: unknown, classnames: string[]) => {
-    if (hasElements(classnames)) {
-      const classnamesWithId = classnames.map((classname) => ({
-        name: classname,
-        id: uuid(),
-      }))
+    const classnamesWithId = classnames.map((classname) => ({
+      name: classname,
+      id: uuid(),
+    }))
 
-      dispatch(setClassnames(classnamesWithId))
-    }
+    dispatch(setClassnames(classnamesWithId))
   })
 }
 
