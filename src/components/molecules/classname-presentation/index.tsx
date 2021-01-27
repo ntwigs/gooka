@@ -18,9 +18,11 @@ const Classnames = () => {
       setClassnames([])
     }
 
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setClassnames(classnames)
     }, 450)
+
+    return () => clearTimeout(timeout)
   }, [classnames])
 
   return (
