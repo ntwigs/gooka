@@ -16,3 +16,18 @@ export const stagger = {
     },
   },
 }
+
+export const staggerFiles = {
+  listIn: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
+    },
+  },
+  initial: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+}
