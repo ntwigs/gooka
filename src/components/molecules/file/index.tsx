@@ -21,6 +21,23 @@ type FileProps = {
   fileType?: 'file' | 'style'
 }
 
+const variants = {
+  listIn: {
+    opacity: 1,
+    height: 'auto',
+  },
+  initial: {
+    opacity: 0,
+    height: 0,
+  },
+}
+
+const FileOverflowContainer = styled(motion.div)`
+  overflow: hidden;
+  overflow-x: visible;
+  padding-right: 1px;
+`
+
 export const File = ({ name, path, id, fileType }: FileProps) => {
   const [isHover, setHover] = useState(false)
   const dispatch = useDispatch()
@@ -31,12 +48,7 @@ export const File = ({ name, path, id, fileType }: FileProps) => {
   const hoverOut = () => setHover(false)
 
   return (
-    <motion.div
-      transition={{ duration: 0.2 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, height: 0 }}
-      initial={{ opacity: 0 }}
-    >
+    <FileOverflowContainer variants={variants}>
       <Box
         marginBottom={Sizes.m}
         onMouseEnter={hoverIn}
@@ -52,6 +64,6 @@ export const File = ({ name, path, id, fileType }: FileProps) => {
           <Trash isActive={isHover} onClick={remove} />
         </FileContainer>
       </Box>
-    </motion.div>
+    </FileOverflowContainer>
   )
 }
