@@ -7,6 +7,9 @@ import { File } from '../file'
 import { Header } from '../header'
 import { AnimatePresence, motion } from 'framer-motion'
 import { variants } from '../../../animations/animation'
+import { stagger, staggerFiles } from '../../../animations/stagger'
+import { monitorEventLoopDelay } from 'perf_hooks'
+import { hasElements } from '../../../utils/has-elements'
 
 type DropSectionProps = {
   title: string
@@ -36,9 +39,24 @@ export const DropSection = ({
     <Box>
       <Header title={title} subtitle={subtitle} delay={delay} />
       <AnimatePresence>
-        {files.map(({ id, name, path }: FileProps) => (
-          <File key={id} id={id} name={name} path={path} fileType={fileType} />
-        ))}
+        {hasElements(files) && (
+          <motion.div
+            variants={staggerFiles}
+            animate="listIn"
+            initial="initial"
+            exit="initial"
+          >
+            {files.map(({ id, name, path }: FileProps) => (
+              <File
+                key={id}
+                id={id}
+                name={name}
+                path={path}
+                fileType={fileType}
+              />
+            ))}
+          </motion.div>
+        )}
       </AnimatePresence>
       <motion.div
         variants={variants(delay + 0.4)}
