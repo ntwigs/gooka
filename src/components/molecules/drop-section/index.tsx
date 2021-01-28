@@ -60,10 +60,12 @@ export const DropSection = ({
       </AnimatePresence>
       <motion.div
         variants={variants(delay + 0.4)}
-        animate="animate"
+        animate="listIn"
         initial="initial"
       >
-        <Dropzone title={dropTitle} onDrop={onDrop} hasMaxFiles={hasMaxFiles} />
+        <AnimatePresence>
+          {!hasMaxFiles && <Dropzone title={dropTitle} onDrop={onDrop} />}
+        </AnimatePresence>
       </motion.div>
     </Box>
   )
