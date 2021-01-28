@@ -33,6 +33,10 @@ const Input = styled.input`
   cursor: pointer;
 `
 
+const FileOverflowContainer = styled(motion.div)`
+  overflow: hidden;
+`
+
 const DropzoneText = styled.p`
   color: ${({ theme }) => theme.colors.light};
 `
@@ -40,30 +44,32 @@ const DropzoneText = styled.p`
 type DropzoneProps = {
   title: string
   onDrop: (file: string) => void
-  hasMaxFiles: boolean
 }
 
 const variants = {
-  in: {
+  animate: {
     opacity: 1,
+    height: 'auto',
   },
-  out: {
+  initial: {
     opacity: 0,
+    height: 0,
   },
 }
 
-export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
+export const Dropzone = ({ title, onDrop }: DropzoneProps) => {
   const [isActive, setActive] = useState(false)
   const disable = () => setActive(false)
   const enable = () => setActive(true)
   const EMPTY_STRING = ''
 
-  if (hasMaxFiles) {
-    return NO_ELEMENT
-  }
-
   return (
-    <motion.div variants={variants} animate="in" exit="out" initial="out">
+    <FileOverflowContainer
+      variants={variants}
+      animate="animate"
+      exit="initial"
+      initial="initial"
+    >
       <Box marginBottom={Sizes.m}>
         <FileContainer isActive={isActive}>
           <Input
@@ -80,6 +86,6 @@ export const Dropzone = ({ title, onDrop, hasMaxFiles }: DropzoneProps) => {
           <DropzoneText>{title}</DropzoneText>
         </FileContainer>
       </Box>
-    </motion.div>
+    </FileOverflowContainer>
   )
 }
