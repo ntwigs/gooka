@@ -49,21 +49,27 @@ export const File = ({ name, path, id, fileType }: FileProps) => {
 
   return (
     <FileOverflowContainer variants={variants}>
-      <Box
-        marginBottom={Sizes.m}
-        onMouseEnter={hoverIn}
-        onMouseLeave={hoverOut}
+      <FileOverflowContainer
+        animate={{ opacity: 1, height: 'auto' }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0, height: 0 }}
       >
-        <FileContainer>
-          <Box marginRight={Sizes.m}>
-            <Box marginBottom={Sizes.s}>
-              <FileTitle>{name}</FileTitle>
+        <Box
+          marginBottom={Sizes.m}
+          onMouseEnter={hoverIn}
+          onMouseLeave={hoverOut}
+        >
+          <FileContainer>
+            <Box marginRight={Sizes.m}>
+              <Box marginBottom={Sizes.s}>
+                <FileTitle>{name}</FileTitle>
+              </Box>
+              <Path>{path}</Path>
             </Box>
-            <Path>{path}</Path>
-          </Box>
-          <Trash isActive={isHover} onClick={remove} />
-        </FileContainer>
-      </Box>
+            <Trash isActive={isHover} onClick={remove} />
+          </FileContainer>
+        </Box>
+      </FileOverflowContainer>
     </FileOverflowContainer>
   )
 }
