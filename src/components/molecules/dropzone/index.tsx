@@ -35,6 +35,7 @@ const Input = styled.input`
 
 const FileOverflowContainer = styled(motion.div)`
   overflow: hidden;
+  padding-right: 5px;
 `
 
 const DropzoneText = styled.p`
