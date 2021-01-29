@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
-import { ipcRenderer } from '../../../utils/ipcRender'
+import { send } from '../../../utils/send'
 
 export const useCompare = () => {
   const files = useSelector(getFiles)
@@ -13,7 +13,7 @@ export const useCompare = () => {
     const hasStyles = hasElements(styles)
 
     if (hasFiles && hasStyles) {
-      ipcRenderer.send('analyze-classnames', { files, styles })
+      send('analyze-classnames', { files, styles })
     }
   }, [files, styles])
 }

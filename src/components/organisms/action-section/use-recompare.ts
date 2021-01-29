@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { resetClassnames } from '../../../redux/actions/files'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
-import { ipcRenderer } from '../../../utils/ipcRender'
+import { send } from '../../../utils/send'
 
 export const useReCompare = () => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ export const useReCompare = () => {
 
     if (hasFiles && hasStyles) {
       dispatch(resetClassnames())
-      ipcRenderer.send('analyze-classnames', { files, styles })
+      send('analyze-classnames', { files, styles })
     }
   }
 
