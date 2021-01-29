@@ -8,7 +8,6 @@ import { useInfo } from './use-info'
 import { Drawer } from '../../atoms/drawer'
 import { LogoHeader } from '../../molecules/logo-header'
 import { Scroll } from '../../atoms/scroll'
-import { motion } from 'framer-motion'
 
 export const FileSection = () => {
   const onFileDrop = useInfo({ setAction: setFiles })
