@@ -7,8 +7,7 @@ import { File } from '../file'
 import { Header } from '../header'
 import { AnimatePresence, motion } from 'framer-motion'
 import { variants } from '../../../animations/animation'
-import { stagger, staggerFiles } from '../../../animations/stagger'
-import { monitorEventLoopDelay } from 'perf_hooks'
+import { staggerFiles } from '../../../animations/stagger'
 import { hasElements } from '../../../utils/has-elements'
 
 type DropSectionProps = {
@@ -62,7 +61,7 @@ export const DropSection = ({
       </AnimatePresence>
       <motion.div
         variants={variants(delay + 0.4)}
-        animate="listIn"
+        animate="animate"
         initial="initial"
       >
         <AnimatePresence>
