@@ -46,15 +46,17 @@ export const DropSection = ({
             initial="initial"
             exit="initial"
           >
-            {files.map(({ id, name, path }: FileProps) => (
-              <File
-                key={id}
-                id={id}
-                name={name}
-                path={path}
-                fileType={fileType}
-              />
-            ))}
+            <AnimatePresence>
+              {files.map(({ id, name, path }: FileProps) => (
+                <File
+                  key={id}
+                  id={id}
+                  name={name}
+                  path={path}
+                  fileType={fileType}
+                />
+              ))}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
