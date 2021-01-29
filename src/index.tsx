@@ -32,7 +32,6 @@ const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.colors.grey};
     font-size: 16px;
     font-weight: normal;
-    margin-top: 10px;
   }
 
   p {
