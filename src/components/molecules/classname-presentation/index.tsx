@@ -34,8 +34,8 @@ const Classnames = () => {
           initial="initial"
           exit="initial"
         >
-          {_classnames.map(({ name, id }: ClassnameProps) => (
-            <UnnecessaryClassname key={id} name={name} />
+          {_classnames.map(({ name }: ClassnameProps) => (
+            <UnnecessaryClassname key={name} name={name} />
           ))}
         </motion.div>
       )}
