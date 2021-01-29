@@ -18,11 +18,11 @@ const Classnames = () => {
       setClassnames([])
     }
 
-    const timeout = setTimeout(() => {
-      setClassnames(classnames)
-    }, 450)
+    const timeout = hasElements(classnames)
+      ? setTimeout(() => setClassnames(classnames), 450)
+      : undefined
 
-    return () => clearTimeout(timeout)
+    return () => timeout && clearTimeout(timeout)
   }, [classnames])
 
   return (
@@ -34,8 +34,8 @@ const Classnames = () => {
           initial="initial"
           exit="initial"
         >
-          {_classnames.map(({ name }: ClassnameProps) => (
-            <UnnecessaryClassname key={name} name={name} />
+          {_classnames.map(({ name, id }: ClassnameProps) => (
+            <UnnecessaryClassname key={id} name={name} />
           ))}
         </motion.div>
       )}
