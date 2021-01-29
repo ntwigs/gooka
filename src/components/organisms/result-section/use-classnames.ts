@@ -5,10 +5,10 @@ import { Dispatch } from 'redux'
 import { setClassnames } from '../../../redux/actions/files'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
-import { ipcRenderer } from '../../../utils/ipcRender'
+import { on } from '../../../utils/on'
 
 const setClassnameEvent = (dispatch: Dispatch) => {
-  ipcRenderer.on('analyze-classnames', (_: unknown, classnames: string[]) => {
+  on('analyze-classnames', (_: unknown, classnames: string[]) => {
     const classnamesWithId = classnames.map((classname) => ({
       name: classname,
       id: uuid(),
