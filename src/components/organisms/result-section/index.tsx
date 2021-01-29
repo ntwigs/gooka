@@ -5,9 +5,10 @@ import { useCompare } from './use-compare'
 import { useClassnames } from './use-classnames'
 import { FileCompanion } from '../../molecules/file-companion'
 import { Scroll } from '../../atoms/scroll'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ClassnamePresentation } from '../../molecules/classname-presentation'
 import { useSelector } from 'react-redux'
+import { variants } from '../../../animations/animation'
 
 export const ResultSection = () => {
   useClassnames()
@@ -16,12 +17,26 @@ export const ResultSection = () => {
 
   return (
     <Box grow>
-      <Scroll>
+      <motion.div
+        variants={variants(3)}
+        animate="animate"
+        initial="initial"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          flexGrow: 1,
+        }}
+      >
         <AnimatePresence exitBeforeEnter>
           {!hasUnusedClassnames && <FileCompanion key="filecompanion" />}
-          {hasUnusedClassnames && <ClassnamePresentation key="presentation" />}
+          {hasUnusedClassnames && (
+            <Scroll>
+              <ClassnamePresentation key="presentation" />
+            </Scroll>
+          )}
         </AnimatePresence>
-      </Scroll>
+      </motion.div>
     </Box>
   )
 }
