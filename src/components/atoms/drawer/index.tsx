@@ -10,4 +10,9 @@ export const Drawer = styled(motion.div)`
   flex-direction: column;
   overflow: hidden;
   padding-right: 5px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    border-top-right-radius: 0;
+  }
 `
