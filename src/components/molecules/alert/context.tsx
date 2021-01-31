@@ -51,7 +51,7 @@ const useErrorEvent = ({ setOpen, setMessage }: AlertContextProps) => {
       setOpen(true)
       setMessage(message)
     })
-  }, [])
+  }, [setOpen, setMessage])
 }
 
 type OpenAlertProps = {
