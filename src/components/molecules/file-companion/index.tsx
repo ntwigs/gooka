@@ -27,6 +27,10 @@ const H3 = styled(motion.h3)`
   align-self: center;
 `
 
+const Container = styled.div`
+  padding: 40px 0;
+`
+
 export const FileCompanion = () => {
   const DELAY = 500
   const { title, subtitle, isEmpty } = useText()
@@ -43,36 +47,38 @@ export const FileCompanion = () => {
 
   return (
     <Center>
-      <motion.div exit={{ opacity: 0 }}>
-        <Box>
-          <Box marginBottom={Sizes.l}>
-            <Image
-              src={files}
+      <Container>
+        <motion.div exit={{ opacity: 0 }}>
+          <Box>
+            <Box marginBottom={Sizes.l}>
+              <Image
+                src={files}
+                variants={variants()}
+                animate="animate"
+                initial="initial"
+                exit="exit"
+              />
+            </Box>
+            <H1
               variants={variants()}
-              animate="animate"
+              animate={updated}
               initial="initial"
               exit="exit"
-            />
+              isEmpty={isEmptyValue}
+            >
+              {titleValue}
+            </H1>
+            <H3
+              variants={variants()}
+              animate={updated}
+              initial="initial"
+              exit="exit"
+            >
+              {subtitleValue}
+            </H3>
           </Box>
-          <H1
-            variants={variants()}
-            animate={updated}
-            initial="initial"
-            exit="exit"
-            isEmpty={isEmptyValue}
-          >
-            {titleValue}
-          </H1>
-          <H3
-            variants={variants()}
-            animate={updated}
-            initial="initial"
-            exit="exit"
-          >
-            {subtitleValue}
-          </H3>
-        </Box>
-      </motion.div>
+        </motion.div>
+      </Container>
     </Center>
   )
 }
