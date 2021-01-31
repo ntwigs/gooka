@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Box, Sizes } from '../../atoms/box'
 import { DropSection } from '../../molecules/drop-section'
 import { setFiles, setStyles } from '../../../redux/actions/files'
