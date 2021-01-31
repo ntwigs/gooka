@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const AlertContainer = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -16,6 +16,7 @@ const AlertBox = styled.div`
   padding: 10px 15px;
   margin: 10px 0;
   border-radius: 10px;
+  width: max-content;
 `
 
 const AlertMessage = styled.p`
