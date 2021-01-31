@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components'
 import { stagger } from '../../../animations/stagger'
 import { getClassnames } from '../../../redux/selectors/files'
 import { ClassnameProps } from '../../../redux/types/files'
@@ -43,15 +44,23 @@ const Classnames = () => {
   )
 }
 
+const Padding = styled.div`
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+`
+
 export const ClassnamePresentation = () => {
   return (
-    <motion.div exit={{ opacity: 0 }}>
-      <HeaderSpacer />
-      <Header
-        title="Unused classnames"
-        subtitle="Found some classnames to remove."
-      />
-      <Classnames />
-    </motion.div>
+    <Padding>
+      <motion.div exit={{ opacity: 0 }}>
+        <HeaderSpacer />
+        <Header
+          title="Unused classnames"
+          subtitle="Found some classnames to remove."
+        />
+        <Classnames />
+      </motion.div>
+    </Padding>
   )
 }
