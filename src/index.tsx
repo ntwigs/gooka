@@ -34,9 +34,26 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
   }
 
+  body {
+    overflow: overlay;
+  }
+
   p {
     font-size: 14px;
     color: ${(props) => props.theme.colors.grey};
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.grey};
+    border-radius: 10px;
   }
 `
 
