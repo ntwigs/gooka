@@ -7,18 +7,7 @@ export const Scroll = styled.div`
   padding: 0 40px;
   overflow-y: overlay;
 
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    border-radius: 10px;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.grey};
-    border-radius: 10px;
+  @media (max-width: 800px) {
+    overflow-y: visible;
   }
 `
