@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Start } from './components/pages/start'
 import { ThemeProvider } from 'styled-components'
-import { theme } from './theme'
+import { dark, light } from './theme'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { AnimatedOverlay } from './components/atoms/overlay'
@@ -12,7 +12,7 @@ import { GlobalStyle } from './theme/global-style'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={dark}>
         <GlobalStyle />
         <AlertProvider>
           <AnimatedOverlay />
