@@ -12,6 +12,7 @@ import { motion } from 'framer-motion'
 const FileTitle = styled.p`
   font-size: 16px;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.white};
 `
 
 type FileProps = {
