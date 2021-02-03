@@ -5,6 +5,7 @@ export const Layout = styled.div`
   height: 100vh;
   display: flex;
   flex: 1;
+  background: ${(props) => props.theme.colors.background};
 
   @media (max-width: 800px) {
     flex-direction: column;
