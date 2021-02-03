@@ -9,11 +9,15 @@ type ThemeColors = {
   grey: string
   black: string
   light: string
+  background: string
+  title: string
+  subtitle: string
+  inactive: string
+  active: string
 }
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    light: ThemeColors
-    dark: ThemeColors
+    colors: ThemeColors
   }
 }
