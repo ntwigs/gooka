@@ -13,7 +13,7 @@ const Container = styled(motion.div)<ContainerProps>`
   display: flex;
   flex-direction: row;
   background: ${({ theme, isRemoved }) =>
-    isRemoved ? theme.colors.grey : theme.colors.green};
+    isRemoved ? theme.colors.inactive : theme.colors.active};
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
