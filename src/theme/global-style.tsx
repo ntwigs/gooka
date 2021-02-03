@@ -8,13 +8,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    color: ${(props) => props.theme.colors.green};
+    color: ${(props) => props.theme.colors.title};
     font-weight: 900;
     font-size: 25px;
   }
 
   h2 {
-    color ${(props) => props.theme.colors.green};
+    color ${(props) => props.theme.colors.title};
     font-size: 18px;
     font-weight: normal;
   }
