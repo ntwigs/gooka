@@ -18,7 +18,7 @@ const LogoHeaderContainer = styled(motion.div)`
 `
 
 const Name = styled(motion.p)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.logo};
   font-weight: 900;
   font-size: 34px;
   margin-left: 10px;

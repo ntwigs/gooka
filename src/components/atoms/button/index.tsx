@@ -10,15 +10,15 @@ type StyledButtonProps = {
 
 const getBackground = ({ apperance, theme }: any) => {
   if (!apperance) {
-    return theme.colors.green
+    return theme.colors.button
   }
 
-  return theme.colors.red
+  return theme.colors.delete
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
   background: ${getBackground};
-  color: ${(props) => props.theme.colors.white};
+  color: ${({ theme }) => theme.colors.lightText};
   border-radius: 10px;
   font-size: 16px;
   width: 105px;

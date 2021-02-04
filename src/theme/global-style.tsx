@@ -8,21 +8,20 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    color: ${(props) => props.theme.colors.title};
     font-weight: 900;
     font-size: 25px;
+    color: ${({ theme }) => theme.colors.header}
   }
 
   h2 {
-    color ${(props) => props.theme.colors.title};
     font-size: 18px;
     font-weight: normal;
   }
 
   h3 {
-    color: ${(props) => props.theme.colors.grey};
     font-size: 16px;
     font-weight: normal;
+    color: ${({ theme }) => theme.colors.subheader}
   }
 
   body {
@@ -31,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
 
   p {
     font-size: 14px;
-    color: ${(props) => props.theme.colors.grey};
+    color: ${({ theme }) => theme.colors.text}
   }
 
   &::-webkit-scrollbar {
@@ -43,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.grey};
+    background: ${({ theme }) => theme.colors.scrollbar};
     border-radius: 10px;
   }
 `

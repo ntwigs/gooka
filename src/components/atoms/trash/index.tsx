@@ -17,7 +17,7 @@ const TrashContainer = styled(motion.div)`
   width: 25px;
   height: 25px;
   border-radius: 5px;
-  background: ${({ theme }) => theme.colors.red};
+  background: ${({ theme }) => theme.colors.delete};
 `
 
 const variants = {

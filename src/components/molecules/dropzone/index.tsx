@@ -18,7 +18,7 @@ const FileContainer = styled(motion.div)<FileContainerProps>`
   position: relative;
   padding: 10px 0;
   width: 100%;
-  border: 2px dashed ${({ theme }) => theme.colors.light};
+  border: 2px dashed ${({ theme }) => theme.colors.border};
 `
 
 const Input = styled.input`
@@ -38,7 +38,7 @@ const FileOverflowContainer = styled(motion.div)`
 `
 
 const DropzoneText = styled.p`
-  color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.border};
 `
 
 type DropzoneProps = {

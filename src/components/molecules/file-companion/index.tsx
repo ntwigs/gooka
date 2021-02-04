@@ -18,7 +18,7 @@ type H1Props = { isEmpty: boolean }
 const H1 = styled(motion.h1)<H1Props>`
   text-align: center;
   color: ${({ theme, isEmpty }) =>
-    isEmpty ? theme.colors.red : theme.colors.green};
+    isEmpty ? theme.colors.delete : theme.colors.button};
 `
 
 const H3 = styled(motion.h3)`

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const Drawer = styled(motion.div)`
   width: 331px;
   height: 100%;
-  background: ${({ theme }) => theme.colors.lightGreen};
+  background: ${({ theme }) => theme.colors.drawer};
   border-top-right-radius: 50px;
   display: flex;
   flex-direction: column;

@@ -12,7 +12,7 @@ const AlertContainer = styled.div`
 `
 const AlertBox = styled.div`
   position: relative;
-  background: ${({ theme }) => theme.colors.green};
+  background: ${({ theme }) => theme.colors.alert};
   padding: 10px 15px;
   margin: 10px 0;
   border-radius: 10px;
@@ -21,7 +21,7 @@ const AlertBox = styled.div`
 
 const AlertMessage = styled.p`
   font-weight: 900;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.lightText};
 `
 
 type AlertProps = {

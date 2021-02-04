@@ -7,7 +7,7 @@ export const Overlay = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.overlay};
   z-index: 2;
   pointer-events: none;
 `
