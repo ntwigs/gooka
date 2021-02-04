@@ -6,20 +6,16 @@ import sun from '../../../assets/sun.png'
 import moon from '../../../assets/moon.png'
 import { variants } from '../../../animations/animation'
 
-type StyledThemeButtonProps = {
-  isLight?: boolean
-}
-
-const Icon = styled(motion.img)<StyledThemeButtonProps>`
-  height: ${({ isLight }) => (isLight ? 30 : 15)}px;
-  width: ${({ isLight }) => (isLight ? 30 : 15)}px;
+const Icon = styled(motion.img)`
+  width: 15px;
+  height: 15px;
 `
 
 const Container = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 45px;
+  width: 30px;
   height: 45px;
   cursor: pointer;
 `
@@ -32,7 +28,7 @@ export const ThemeButton = () => {
   const { toggleLight, isLight } = useContext(ThemeContext)
 
   return (
-    <motion.div variants={variants(3.2)} animate="animate" initial="initial">
+    <motion.div variants={variants(3.4)} animate="animate" initial="initial">
       <AnimatePresence>
         <Container
           onClick={toggleLight}
@@ -57,7 +53,7 @@ export const ThemeButton = () => {
               exit="initial"
               initial="initial"
             >
-              <Icon isLight src={sun} alt="light-mode" />
+              <Icon src={sun} alt="light-mode" />
             </ImageContainer>
           )}
         </Container>
