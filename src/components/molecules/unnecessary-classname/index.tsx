@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useState } from 'react'
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 import { variants } from '../../../animations/animation'
 import { Remove } from '../../atoms/remove'
 
@@ -12,6 +12,8 @@ type ContainerProps = {
 const Container = styled(motion.div)<ContainerProps>`
   display: flex;
   flex-direction: row;
+  background: ${({ theme, isRemoved }) =>
+    isRemoved ? theme.colors.inactive : theme.colors.classname};
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +21,7 @@ const Container = styled(motion.div)<ContainerProps>`
   margin-bottom: 10px;
   flex: 1;
   cursor: pointer;
+  transition: 150ms background;
 `
 
 const Classname = styled.p<ContainerProps>`
@@ -33,18 +36,13 @@ type UnnecessaryClassnameProps = {
 }
 
 export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
-  const theme = useTheme()
   const [isRemoved, setRemoved] = useState(false)
   const toggleRemoved = () => setRemoved(!isRemoved)
 
   return (
     <motion.div variants={variants()}>
       <Container
-        animate={{
-          background: isRemoved
-            ? theme.colors.inactive
-            : theme.colors.classname,
-        }}
+        isRemoved={isRemoved}
         whileHover="largeHover"
         whileTap="largeClick"
         variants={variants()}
