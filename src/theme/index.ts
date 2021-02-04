@@ -1,37 +1,51 @@
 import { DefaultTheme } from 'styled-components'
 
+const colors = {
+  // Light - default
+  black: '#232323',
+  blue: '#008CFF',
+  green: '#08C988',
+  lightGreen: '#E9FFF2',
+  grey: '#4F4F4F',
+  lightGrey: '#BDBDBD',
+  white: '#FFFFFF',
+  red: '#F76345',
+
+  // Dark
+  darkGrey: '#202125',
+  darkerGrey: '#16171b',
+}
+
+const base = {
+  drawer: colors.lightGreen,
+  background: colors.white,
+  logo: colors.green,
+  header: colors.green,
+  subheader: colors.grey,
+  button: colors.green,
+  delete: colors.red,
+  classname: colors.green,
+  inactive: colors.grey,
+  overlay: colors.white,
+  text: colors.grey,
+  lightText: colors.white,
+  alert: colors.green,
+  border: colors.lightGrey,
+  fileTitle: colors.grey,
+  scrollbar: colors.grey,
+}
+
 export const light: DefaultTheme = {
-  colors: {
-    black: '#232323',
-    blue: '#008CFF',
-    green: '#08C988',
-    grey: '#4F4F4F',
-    white: '#FFFFFF',
-    light: '#BDBDBD',
-    red: '#F76345',
-    lightGreen: '#E9FFF2',
-    background: '#FFFFFF',
-    title: '#08C988',
-    subtitle: '#4F4F4F',
-    active: '#08C988',
-    inactive: '#08C988',
-  },
+  colors: base,
 }
 
 export const dark: DefaultTheme = {
   colors: {
-    black: '#232323',
-    blue: '#008CFF',
-    green: '#08C988',
-    grey: '#4F4F4F',
-    white: '#FFFFFF',
-    light: '#BDBDBD',
-    red: '#F76345',
-    lightGreen: '#202125',
-    background: '#16171b',
-    title: '#FFFFFF',
-    subtitle: '#4F4F4F',
-    active: '#08C988',
-    inactive: '#202125',
+    ...base,
+    drawer: colors.darkGrey,
+    background: colors.darkerGrey,
+    fileTitle: colors.white,
+    header: colors.white,
+    inactive: colors.darkGrey,
   },
 }
