@@ -5,6 +5,7 @@ import { dark, light } from '../../../theme'
 
 type ThemeContextProps = {
   toggleLight: () => void
+  isLight: boolean
 }
 
 export const ThemeContext = createContext({} as ThemeContextProps)
@@ -19,7 +20,7 @@ export const ThemeContextProvider = ({ children }: AlertProviderProps) => {
   const toggleLight = () => setLight(!isLight)
 
   return (
-    <ThemeContext.Provider value={{ toggleLight }}>
+    <ThemeContext.Provider value={{ toggleLight, isLight }}>
       <ThemeProvider theme={isLight ? light : dark}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )
