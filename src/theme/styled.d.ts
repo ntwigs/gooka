@@ -1,19 +1,22 @@
 import 'styled-components'
 
 type ThemeColors = {
-  green: string
-  lightGreen: string
-  red: string
-  blue: string
-  white: string
-  grey: string
-  black: string
-  light: string
+  drawer: string
   background: string
-  title: string
-  subtitle: string
+  logo: string
+  header: string
+  subheader: string
+  button: string
+  delete: string
+  classname: string
   inactive: string
-  active: string
+  overlay: string
+  text: string
+  lightText: string
+  alert: string
+  border: string
+  fileTitle: string
+  scrollbar: string
 }
 
 declare module 'styled-components' {
