@@ -18,5 +18,5 @@ export const useCompare = () => {
       void dispatch(setClassnames([]))
       send('analyze-classnames', { files, styles })
     }
-  }, [files, styles])
+  }, [files, styles, dispatch, setClassnames])
 }
