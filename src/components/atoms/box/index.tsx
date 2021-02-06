@@ -15,6 +15,9 @@ type BoxProps = {
   marginLeft?: Sizes
   row?: boolean
   grow?: boolean
+  maxWidth?: number
+  maxHeight?: number
+  center?: boolean
 }
 
 type SizeProps = { [props: string]: number }
@@ -29,6 +32,9 @@ const sizes: SizeProps = {
 
 export const Box = styled.div<BoxProps>`
   display: flex;
+  justify-content: ${({ center }) => (center ? 'center' : 'normal')};
+  align-items: ${({ center }) => (center ? 'center' : 'normal')};
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : 'auto')};
   flex-grow: ${({ grow }) => (grow ? 1 : 0)};
   flex-direction: ${(props) => (props.row ? 'row' : 'column')};
   min-width: 0;
