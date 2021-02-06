@@ -16,6 +16,29 @@ const colors = {
   darkerGrey: '#16171b',
 }
 
+export type Swatches =
+  | 'primary'
+  | 'secondary'
+  | 'info'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'default'
+  | 'text'
+
+const swatches: (isDark: boolean) => Record<Swatches, string> = (
+  isDark: boolean,
+) => ({
+  default: colors.grey,
+  primary: colors.green,
+  secondary: isDark ? colors.white : colors.green,
+  info: colors.blue,
+  success: colors.green,
+  danger: colors.red,
+  warning: colors.red,
+  text: colors.grey,
+})
+
 const base = {
   drawer: colors.lightGreen,
   background: colors.white,
@@ -27,12 +50,12 @@ const base = {
   classname: colors.green,
   inactive: colors.grey,
   overlay: colors.white,
-  text: colors.grey,
   lightText: colors.white,
   alert: colors.green,
   border: colors.lightGrey,
   fileTitle: colors.grey,
   scrollbar: colors.grey,
+  ...swatches(false),
 }
 
 export const light: DefaultTheme = {
@@ -42,6 +65,7 @@ export const light: DefaultTheme = {
 export const dark: DefaultTheme = {
   colors: {
     ...base,
+    ...swatches(true),
     drawer: colors.darkGrey,
     background: colors.darkerGrey,
     fileTitle: colors.white,
