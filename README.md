@@ -8,7 +8,7 @@ The naive and simplified way to find unused css classes.
 ### What's this?
 Are you still using css-outside-JS (also known as just "css") - and you know that there *might* be some old css classes that are no longer in use? Such as `.deleteLater` and `.testing123`? But you're also quite sure about not wanting something fully automatic - so you know that you're in control? Then **Gooka** is for you!
 
-Gooka is an easy way to find unused css classes in your code. It basically takes a css file and some non-css files and searches for the Selectors inside those files. If no unused Selectors are found, **congratulations**. But if Gooka finds some unused Selectors - you'll get a list of those Selectors, and manually delete them.
+Gooka is an easy way to find unused css classes in your code. It basically takes a css file and some non-css files and searches for the selectors inside those files. If no unused selectors are found, **congratulations**. But if Gooka finds some unused selectors - you'll get a list of those selectors, and manually delete them.
 
 // INSERT GIFS HERE.
 
