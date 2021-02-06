@@ -17,6 +17,13 @@ type ThemeColors = {
   border: string
   fileTitle: string
   scrollbar: string
+  default: string
+  primary: string
+  secondary: string
+  info: string
+  success: string
+  danger: string
+  warning: string
 }
 
 declare module 'styled-components' {
