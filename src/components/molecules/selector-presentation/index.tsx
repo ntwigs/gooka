@@ -8,7 +8,7 @@ import { SelectorProps } from '../../../redux/types/files'
 import { hasElements } from '../../../utils/has-elements'
 import { HeaderSpacer } from '../../atoms/header-spacer'
 import { Header } from '../header'
-import { UnnecessarySelector } from '../unnecessary-selector
+import { UnnecessarySelector } from '../unnecessary-selector'
 
 const Selectors = () => {
   const Selectors = useSelector(getSelectors)
@@ -56,8 +56,8 @@ export const SelectorPresentation = () => {
       <motion.div exit={{ opacity: 0 }}>
         <HeaderSpacer />
         <Header
-          title="Unused Selectors"
-          subtitle="Found some Selectors to remove."
+          title="Unused selectors"
+          subtitle="Found some selectors to remove."
         />
         <Selectors />
       </motion.div>

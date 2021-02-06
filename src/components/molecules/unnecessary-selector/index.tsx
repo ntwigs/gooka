@@ -25,7 +25,7 @@ const Container = styled(motion.div)<ContainerProps>`
   transition: 150ms background;
 `
 
-const selector = styled.p<ContainerProps>`
+const Selector = styled.p<ContainerProps>`
   color: ${(props) => props.theme.colors.lightText};
   font-weight: bold;
   font-size: 18px;
@@ -49,7 +49,7 @@ export const UnnecessarySelector = ({ name }: UnnecessarySelectorProps) => {
         variants={variants()}
         onClick={toggleRemoved}
       >
-        <selector isRemoved={isRemoved}>{name}</selector>
+        <Selector isRemoved={isRemoved}>{name}</Selector>
         <Remove isRemoved={isRemoved} />
       </Container>
     </Animator>

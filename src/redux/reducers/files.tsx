@@ -5,8 +5,8 @@ import {
   REMOVE_FILE,
   REMOVE_STYLE,
   SET_STYLES,
-  SET_CLASSNAMES,
-  RESET_CLASSNAMES,
+  RESET_SELECTORS,
+  SET_SELECTORS,
 } from '../types/files'
 import { File } from '../../../common/types/file'
 import { hasElements } from '../../utils/has-elements'
@@ -14,7 +14,7 @@ import { hasElements } from '../../utils/has-elements'
 const initialState = {
   files: [],
   styles: [],
-  Selectors: [],
+  selectors: [],
   hasUnusedSelectors: false,
 }
 
@@ -48,19 +48,19 @@ export const files = (state = initialState, action: AnyAction) => {
         styles: state.styles.filter((style: File) => style.id !== id),
       }
     }
-    case SET_CLASSNAMES: {
+    case SET_SELECTORS: {
       const hasUnusedSelectors = hasElements(action.payload.content)
 
       return {
         ...state,
-        Selectors: action.payload.content,
+        selectors: action.payload.content,
         hasUnusedSelectors,
       }
     }
-    case RESET_CLASSNAMES: {
+    case RESET_SELECTORS: {
       return {
         ...state,
-        Selectors: [],
+        selectors: [],
       }
     }
     case RESET: {

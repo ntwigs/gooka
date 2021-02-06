@@ -15,7 +15,7 @@ export const useReCompare = () => {
 
     if (hasFiles && hasStyles) {
       dispatch(resetSelectors())
-      send('analyze-Selectors', { files, styles })
+      send('analyze-selectors', { files, styles })
     }
   }
 

@@ -17,17 +17,17 @@ export const useText = () => {
 
   if (hasSelectors) {
     return {
-      title: 'Unused Selectors',
-      subtitle: 'Found some Selectors to remove.',
+      title: 'Unused selectors',
+      subtitle: 'Found some selectors to remove.',
       isEmpty: false,
     }
   }
 
   if (hasFiles && hasStyles) {
     return {
-      title: 'No unused Selectors',
+      title: 'No unused selectors',
       subtitle:
-        'There were no unused Selectors in the files you provided to Gooka.',
+        'There were no unused selectors in the files you provided to Gooka.',
       isEmpty: true,
     }
   }
@@ -36,7 +36,7 @@ export const useText = () => {
     return {
       title: 'Add files to compare',
       subtitle:
-        'Drag and drop files from vscode to compare them and check for unused css Selectors.',
+        'Drag and drop files from vscode to compare them and check for unused css selectors.',
       isEmpty: false,
     }
   }
@@ -44,7 +44,7 @@ export const useText = () => {
   return {
     title: 'Add stylesheet to compare',
     subtitle:
-      'Drag and drop a style file from vscode to compare and check for unused css Selectors.',
+      'Drag and drop a style file from vscode to compare and check for unused css selectors.',
     isEmpty: false,
   }
 }

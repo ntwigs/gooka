@@ -1,7 +1,7 @@
-import { Selectors } from './selector'
+import { selectors } from './selector'
 import { file } from './file'
 
 export const services = {
-  Selectors,
+  selectors,
   file,
 }

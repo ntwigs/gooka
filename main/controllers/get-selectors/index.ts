@@ -3,7 +3,7 @@ import { File } from '../../../common/types/file'
 
 export const getClasses = (file: File) => {
   const { getPath, getContent } = services.file
-  const { getSelectors, getCleanSelectors } = services.Selectors
+  const { getSelectors, getCleanSelectors } = services.selectors
   const path = getPath(file)
   const content = getContent(path)
   const Selectors = getSelectors(content)

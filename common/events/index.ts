@@ -1,1 +1,1 @@
-export type Events = 'analyze-error' | 'analyze-Selectors'
+export type Events = 'analyze-error' | 'analyze-selectors'

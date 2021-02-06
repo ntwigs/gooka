@@ -1,6 +1,6 @@
 import { IpcMainEvent } from 'electron/main'
 import { File } from '../../../common/types/file'
-import { getClasses } from '../get-classes'
+import { getClasses } from '../get-selectors'
 import { services } from '../../services'
 import { reply } from '../../utils/reply'
 import { handleError } from '../handle-error'
@@ -16,7 +16,7 @@ export const analyzeSelectors = (
 ) => {
   try {
     const { files, styles } = args
-    const { getUnused, getUniqueSelectors } = services.Selectors
+    const { getUnused, getUniqueSelectors } = services.selectors
 
     const fileClasses = files.map(getUsage).flat()
     const styleClasses = styles.map(getClasses).flat()
@@ -25,7 +25,7 @@ export const analyzeSelectors = (
       Selectors: unused,
     })
 
-    reply<string[]>(event, 'analyze-Selectors', uniqueSelectors)
+    reply<string[]>(event, 'analyze-selectors', uniqueSelectors)
   } catch (error) {
     handleError(event, error)
   }

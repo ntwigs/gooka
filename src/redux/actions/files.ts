@@ -6,8 +6,8 @@ import {
   REMOVE_STYLE,
   SET_STYLES,
   SelectorProps,
-  SET_CLASSNAMES,
-  RESET_CLASSNAMES,
+  RESET_SELECTORS,
+  SET_SELECTORS,
 } from '../types/files'
 
 export const setFiles = (files: File[]) => ({
@@ -38,13 +38,13 @@ export const removeStyle = (id: string) => ({
   payload: { content: id },
 })
 
-export const setSelectors = (Selectors: SelectorProps[]) => ({
-  type: SET_CLASSNAMES,
+export const setSelectors = (selectors: SelectorProps[]) => ({
+  type: SET_SELECTORS,
   payload: {
-    content: Selectors,
+    content: selectors,
   },
 })
 
 export const resetSelectors = () => ({
-  type: RESET_CLASSNAMES,
+  type: RESET_SELECTORS,
 })

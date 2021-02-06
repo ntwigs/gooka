@@ -16,7 +16,7 @@ export const useCompare = () => {
 
     if (hasFiles && hasStyles) {
       void dispatch(setSelectors([]))
-      send('analyze-Selectors', { files, styles })
+      send('analyze-selectors', { files, styles })
     }
   }, [files, styles, dispatch, setSelectors])
 }
