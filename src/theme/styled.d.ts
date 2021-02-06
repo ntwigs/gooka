@@ -8,7 +8,7 @@ type ThemeColors = {
   subheader: string
   button: string
   delete: string
-  classname: string
+  selector: string
   inactive: string
   overlay: string
   text: string

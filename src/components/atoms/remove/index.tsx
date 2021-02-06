@@ -18,6 +18,6 @@ export const Remove = ({ isRemoved }: RemoveImageProps) => (
   <RemoveImage
     isRemoved={isRemoved}
     src={remove}
-    alt="Remove classname from list"
+    alt="Remove selector from list"
   />
 )

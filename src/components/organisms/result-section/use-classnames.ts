@@ -2,23 +2,23 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import { Dispatch } from 'redux'
-import { setClassnames } from '../../../redux/actions/files'
+import { setSelectors} from '../../../redux/actions/files'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
 import { on } from '../../../utils/on'
 
-const setClassnameEvent = (dispatch: Dispatch) => {
-  on('analyze-classnames', (_: unknown, classnames: string[]) => {
-    const classnamesWithId = classnames.map((classname) => ({
-      name: classname,
+const setSelectorEvent = (dispatch: Dispatch) => {
+  on('analyze-Selectors', (_: unknown, Selectors: string[]) => {
+    const SelectorsWithId = Selectors.map((selector) => ({
+      name: selector,
       id: uuid(),
     }))
 
-    dispatch(setClassnames(classnamesWithId))
+    dispatch(setSelectorsSelectorsWithId))
   })
 }
 
-export const useClassnames = () => {
+export const useSelectors= () => {
   const dispatch = useDispatch()
   const files = useSelector(getFiles)
   const styles = useSelector(getStyles)
@@ -26,8 +26,8 @@ export const useClassnames = () => {
   const hasFiles = hasElements(files)
   const hasStyles = hasElements(styles)
 
-  const removeClassnames = () => void dispatch(setClassnames([]))
+  const removeSelectors= () => void dispatch(setSSelectors]))
 
-  useEffect(removeClassnames, [hasFiles, hasStyles, dispatch])
-  useEffect(() => setClassnameEvent(dispatch), [dispatch])
+  useEffect(removeSelectors [hasFiles, hasStyles, dispatch])
+  useEffect(() => setSelectorEvent(dispatch), [dispatch])
 }

@@ -1,19 +1,19 @@
 import * as React from 'react'
-import { getHasUnusedClassnames } from '../../../redux/selectors/files'
+import { getHasUnusedSelectors } from '../../../redux/selectors/files'
 import { Box } from '../../atoms/box'
 import { useCompare } from './use-compare'
-import { useClassnames } from './use-classnames'
+import { useSelectors } from './use-Selectors'
 import { FileCompanion } from '../../molecules/file-companion'
 import { Scroll } from '../../atoms/scroll'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ClassnamePresentation } from '../../molecules/classname-presentation'
+import { SelectorPresentation } from '../../molecules/selector-presentation'
 import { useSelector } from 'react-redux'
 import { variants } from '../../../animations/animation'
 
 export const ResultSection = () => {
-  useClassnames()
+  useSelectors()
   useCompare()
-  const hasUnusedClassnames = useSelector(getHasUnusedClassnames)
+  const hasUnusedSelectors = useSelector(getHasUnusedSelectors)
 
   return (
     <Box grow>
@@ -29,10 +29,10 @@ export const ResultSection = () => {
         }}
       >
         <AnimatePresence exitBeforeEnter>
-          {!hasUnusedClassnames && <FileCompanion key="filecompanion" />}
-          {hasUnusedClassnames && (
+          {!hasUnusedSelectors && <FileCompanion key="filecompanion" />}
+          {hasUnusedSelectors && (
             <Scroll>
-              <ClassnamePresentation key="presentation" />
+              <SelectorPresentation key="presentation" />
             </Scroll>
           )}
         </AnimatePresence>

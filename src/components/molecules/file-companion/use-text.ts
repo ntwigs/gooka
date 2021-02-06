@@ -1,33 +1,33 @@
 import { useSelector } from 'react-redux'
 import {
-  getClassnames,
+  getSelectors,
   getFiles,
   getStyles,
 } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
 
 export const useText = () => {
-  const classnames = useSelector(getClassnames)
+  const Selectors = useSelector(getSelectors)
   const files = useSelector(getFiles)
   const styles = useSelector(getStyles)
 
-  const hasClassnames = hasElements(classnames)
+  const hasSelectors = hasElements(Selectors)
   const hasFiles = hasElements(files)
   const hasStyles = hasElements(styles)
 
-  if (hasClassnames) {
+  if (hasSelectors) {
     return {
-      title: 'Unused classnames',
-      subtitle: 'Found some classnames to remove.',
+      title: 'Unused Selectors',
+      subtitle: 'Found some Selectors to remove.',
       isEmpty: false,
     }
   }
 
   if (hasFiles && hasStyles) {
     return {
-      title: 'No unused classnames',
+      title: 'No unused Selectors',
       subtitle:
-        'There were no unused classnames in the files you provided to Gooka.',
+        'There were no unused Selectors in the files you provided to Gooka.',
       isEmpty: true,
     }
   }
@@ -36,7 +36,7 @@ export const useText = () => {
     return {
       title: 'Add files to compare',
       subtitle:
-        'Drag and drop files from vscode to compare them and check for unused css classnames.',
+        'Drag and drop files from vscode to compare them and check for unused css Selectors.',
       isEmpty: false,
     }
   }
@@ -44,7 +44,7 @@ export const useText = () => {
   return {
     title: 'Add stylesheet to compare',
     subtitle:
-      'Drag and drop a style file from vscode to compare and check for unused css classnames.',
+      'Drag and drop a style file from vscode to compare and check for unused css Selectors.',
     isEmpty: false,
   }
 }

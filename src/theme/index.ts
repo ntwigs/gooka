@@ -47,7 +47,7 @@ const base = {
   subheader: colors.grey,
   button: colors.green,
   delete: colors.red,
-  classname: colors.green,
+  selector: colors.green,
   inactive: colors.grey,
   overlay: colors.white,
   lightText: colors.white,

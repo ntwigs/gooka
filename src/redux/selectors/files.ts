@@ -1,5 +1,5 @@
 export const getFiles = (state: any) => state.files.files
 export const getStyles = (state: any) => state.files.styles
-export const getClassnames = (state: any) => state.files.classnames
-export const getHasUnusedClassnames = (state: any) =>
-  state.files.hasUnusedClassnames
+export const getSelectors = (state: any) => state.files.Selectors
+export const getHasUnusedSelectors = (state: any) =>
+  state.files.hasUnusedSelectors

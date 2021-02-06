@@ -3,9 +3,9 @@ import { File } from '../../../common/types/file'
 
 export const getClasses = (file: File) => {
   const { getPath, getContent } = services.file
-  const { getClassnames, getCleanClassnames } = services.classnames
+  const { getSelectors, getCleanSelectors } = services.Selectors
   const path = getPath(file)
   const content = getContent(path)
-  const classnames = getClassnames(content)
-  return getCleanClassnames(classnames)
+  const Selectors = getSelectors(content)
+  return getCleanSelectors(Selectors)
 }

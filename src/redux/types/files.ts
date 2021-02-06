@@ -6,7 +6,7 @@ export const RESET = 'RESET'
 export const SET_CLASSNAMES = 'SET_CLASSNAMES'
 export const RESET_CLASSNAMES = 'RESET_CLASSNAMES'
 
-export type ClassnameProps = {
+export type SelectorProps = {
   name: string
   id: string
 }

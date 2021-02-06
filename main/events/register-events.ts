@@ -2,7 +2,7 @@ import { ipcMain } from 'electron'
 import { IpcMainEvent } from 'electron/main'
 import { File } from '../../common/types/file'
 import { Events } from '../../common/events'
-import { analyzeClassnames } from '../controllers/analyze-classnames'
+import { analyzeSelectors } from '../controllers/analyze-Selectors'
 
 type RegisterProps<T> = {
   event: Events
@@ -15,7 +15,7 @@ const register = <T>({ event, fn }: RegisterProps<T>) => {
 
 export const registerEvents = () => {
   register<{ files: File[]; styles: File[] }>({
-    event: 'analyze-classnames',
-    fn: analyzeClassnames,
+    event: 'analyze-Selectors',
+    fn: analyzeSelectors,
   })
 }

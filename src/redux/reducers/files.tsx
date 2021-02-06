@@ -14,8 +14,8 @@ import { hasElements } from '../../utils/has-elements'
 const initialState = {
   files: [],
   styles: [],
-  classnames: [],
-  hasUnusedClassnames: false,
+  Selectors: [],
+  hasUnusedSelectors: false,
 }
 
 export const files = (state = initialState, action: AnyAction) => {
@@ -49,18 +49,18 @@ export const files = (state = initialState, action: AnyAction) => {
       }
     }
     case SET_CLASSNAMES: {
-      const hasUnusedClassnames = hasElements(action.payload.content)
+      const hasUnusedSelectors = hasElements(action.payload.content)
 
       return {
         ...state,
-        classnames: action.payload.content,
-        hasUnusedClassnames,
+        Selectors: action.payload.content,
+        hasUnusedSelectors,
       }
     }
     case RESET_CLASSNAMES: {
       return {
         ...state,
-        classnames: [],
+        Selectors: [],
       }
     }
     case RESET: {

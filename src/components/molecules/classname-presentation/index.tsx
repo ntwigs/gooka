@@ -3,40 +3,40 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { stagger } from '../../../animations/stagger'
-import { getClassnames } from '../../../redux/selectors/files'
-import { ClassnameProps } from '../../../redux/types/files'
+import { getSelectors } from '../../../redux/selectors/files'
+import { SelectorProps } from '../../../redux/types/files'
 import { hasElements } from '../../../utils/has-elements'
 import { HeaderSpacer } from '../../atoms/header-spacer'
 import { Header } from '../header'
-import { UnnecessaryClassname } from '../unnecessary-classname'
+import { UnnecessarySelector } from '../unnecessary-selector
 
-const Classnames = () => {
-  const classnames = useSelector(getClassnames)
-  const [_classnames, setClassnames] = useState(classnames)
+const Selectors = () => {
+  const Selectors = useSelector(getSelectors)
+  const [_Selectors, setSelectors] = useState(Selectors)
 
   useEffect(() => {
-    if (!hasElements(classnames)) {
-      setClassnames([])
+    if (!hasElements(Selectors)) {
+      setSelectors([])
     }
 
-    const timeout = hasElements(classnames)
-      ? setTimeout(() => setClassnames(classnames), 450)
+    const timeout = hasElements(Selectors)
+      ? setTimeout(() => setSelectors(Selectors), 450)
       : undefined
 
     return () => timeout && clearTimeout(timeout)
-  }, [classnames])
+  }, [Selectors])
 
   return (
     <AnimatePresence exitBeforeEnter>
-      {hasElements(_classnames) && (
+      {hasElements(_Selectors) && (
         <motion.div
           variants={stagger}
           animate="listIn"
           initial="initial"
           exit="initial"
         >
-          {_classnames.map(({ name, id }: ClassnameProps) => (
-            <UnnecessaryClassname key={id} name={name} />
+          {_Selectors.map(({ name, id }: SelectorProps) => (
+            <UnnecessarySelector key={id} name={name} />
           ))}
         </motion.div>
       )}
@@ -50,16 +50,16 @@ const Padding = styled.div`
   }
 `
 
-export const ClassnamePresentation = () => {
+export const SelectorPresentation = () => {
   return (
     <Padding>
       <motion.div exit={{ opacity: 0 }}>
         <HeaderSpacer />
         <Header
-          title="Unused classnames"
-          subtitle="Found some classnames to remove."
+          title="Unused Selectors"
+          subtitle="Found some Selectors to remove."
         />
-        <Classnames />
+        <Selectors />
       </motion.div>
     </Padding>
   )

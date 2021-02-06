@@ -1,6 +1,6 @@
 import {
   GetSymbolRemovalError,
-  GetUnusedClassnamesError,
+  GetUnusedSelectorsError,
 } from '../../utils/errors'
 import { withError } from '../../utils/with-error'
 
@@ -18,7 +18,7 @@ export const getUnused = ({ styleClasses, fileClasses }: GetUnusedProps) => {
   )
 
   if (symbolRemovalError) {
-    throw new GetSymbolRemovalError('Could not remove symbols from classname.')
+    throw new GetSymbolRemovalError('Could not remove symbols from selector.')
   }
 
   const { error: mappingError, result: mappedSelectors } = withError(() =>
@@ -26,7 +26,7 @@ export const getUnused = ({ styleClasses, fileClasses }: GetUnusedProps) => {
   )
 
   if (mappingError) {
-    throw new GetUnusedClassnamesError('Could not get unused classnames.')
+    throw new GetUnusedSelectorsError('Could not get unused Selectors.')
   }
 
   const result = styleClasses.filter((_, index) => mappedSelectors[index])

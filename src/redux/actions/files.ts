@@ -5,7 +5,7 @@ import {
   REMOVE_FILE,
   REMOVE_STYLE,
   SET_STYLES,
-  ClassnameProps,
+  SelectorProps,
   SET_CLASSNAMES,
   RESET_CLASSNAMES,
 } from '../types/files'
@@ -38,13 +38,13 @@ export const removeStyle = (id: string) => ({
   payload: { content: id },
 })
 
-export const setClassnames = (classnames: ClassnameProps[]) => ({
+export const setSelectors = (Selectors: SelectorProps[]) => ({
   type: SET_CLASSNAMES,
   payload: {
-    content: classnames,
+    content: Selectors,
   },
 })
 
-export const resetClassnames = () => ({
+export const resetSelectors = () => ({
   type: RESET_CLASSNAMES,
 })

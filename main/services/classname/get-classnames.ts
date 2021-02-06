@@ -1,12 +1,12 @@
-import { GetClassnameError } from '../../utils/errors'
+import { GetSelectorError } from '../../utils/errors'
 import { withError } from '../../utils/with-error'
 
-export const getClassnames = (content: string): string[] => {
+export const getSelectors = (content: string): string[] => {
   const css = /[.|#]-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*/g
   const { error, result } = withError(() => content.match(css) || [])
 
   if (error) {
-    throw new GetClassnameError('Could not get classnames.')
+    throw new GetSelectorError('Could not get Selectors.')
   }
 
   return result

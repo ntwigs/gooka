@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { resetClassnames } from '../../../redux/actions/files'
+import { resetSelectors } from '../../../redux/actions/files'
 import { getFiles, getStyles } from '../../../redux/selectors/files'
 import { hasElements } from '../../../utils/has-elements'
 import { send } from '../../../utils/send'
@@ -14,8 +14,8 @@ export const useReCompare = () => {
     const hasStyles = hasElements(styles)
 
     if (hasFiles && hasStyles) {
-      dispatch(resetClassnames())
-      send('analyze-classnames', { files, styles })
+      dispatch(resetSelectors())
+      send('analyze-Selectors', { files, styles })
     }
   }
 

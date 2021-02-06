@@ -1,15 +1,15 @@
-import { getUniqueClassnamesError } from '../../utils/errors'
+import { getUniqueSelectorsError } from '../../utils/errors'
 import { withError } from '../../utils/with-error'
 
-type GetUniqueClassnames = {
-  classnames: string[]
+type GetUniqueSelectors = {
+  Selectors: string[]
 }
 
-export const getUniqueClassnames = ({ classnames }: GetUniqueClassnames) => {
-  const { error, result } = withError(() => [...new Set(classnames)])
+export const getUniqueSelectors = ({ Selectors }: GetUniqueSelectors) => {
+  const { error, result } = withError(() => [...new Set(Selectors)])
 
   if (error) {
-    throw new getUniqueClassnamesError('Could not get unique classnames.')
+    throw new getUniqueSelectorsError('Could not get unique Selectors.')
   }
 
   return result

@@ -14,7 +14,7 @@ const Container = styled(motion.div)<ContainerProps>`
   display: flex;
   flex-direction: row;
   background: ${({ theme, isRemoved }) =>
-    isRemoved ? theme.colors.inactive : theme.colors.classname};
+    isRemoved ? theme.colors.inactive : theme.colors.selector};
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
@@ -25,18 +25,18 @@ const Container = styled(motion.div)<ContainerProps>`
   transition: 150ms background;
 `
 
-const Classname = styled.p<ContainerProps>`
+const selector = styled.p<ContainerProps>`
   color: ${(props) => props.theme.colors.lightText};
   font-weight: bold;
   font-size: 18px;
   text-decoration: ${({ isRemoved }) => (isRemoved ? 'line-through' : 'none')};
 `
 
-type UnnecessaryClassnameProps = {
+type UnnecessarySelectorProps = {
   name: string
 }
 
-export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
+export const UnnecessarySelector = ({ name }: UnnecessarySelectorProps) => {
   const [isRemoved, setRemoved] = useState(false)
   const toggleRemoved = () => setRemoved(!isRemoved)
 
@@ -49,7 +49,7 @@ export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
         variants={variants()}
         onClick={toggleRemoved}
       >
-        <Classname isRemoved={isRemoved}>{name}</Classname>
+        <selector isRemoved={isRemoved}>{name}</selector>
         <Remove isRemoved={isRemoved} />
       </Container>
     </Animator>

@@ -1,7 +1,7 @@
-import { classnames } from './classname'
+import { Selectors } from './selector'
 import { file } from './file'
 
 export const services = {
-  classnames,
+  Selectors,
   file,
 }

@@ -1,13 +1,13 @@
-import { getClassnames } from './get-classnames'
-import { getCleanClassnames } from './get-clean-classnames'
-import { getUniqueClassnames } from './get-unique-classnames'
-import { getUnused } from './get-unused-classnames'
+import { getSelectors } from './get-Selectors'
+import { getCleanSelectors } from './get-clean-Selectors'
+import { getUniqueSelectors } from './get-unique-Selectors'
+import { getUnused } from './get-unused-Selectors'
 import { getUsage } from './get-usage'
 
-export const classnames = {
+export const Selectors = {
   getUnused,
-  getUniqueClassnames,
-  getCleanClassnames,
-  getClassnames,
+  getUniqueSelectors,
+  getCleanSelectors,
+  getSelectors,
   getUsage,
 }

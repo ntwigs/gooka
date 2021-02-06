@@ -1,13 +1,13 @@
-import { GetCleanClassnameError } from '../../utils/errors'
+import { GetCleanSelectorError } from '../../utils/errors'
 import { withError } from '../../utils/with-error'
 
-export const getCleanClassnames = (content: string[]): string[] => {
+export const getCleanSelectors = (content: string[]): string[] => {
   const { error, result } = withError(() =>
-    content.map((classname) => classname.trim()),
+    content.map((selector) => selector.trim()),
   )
 
   if (error) {
-    throw new GetCleanClassnameError('Could not get clean classnames.')
+    throw new GetCleanSelectorError('Could not get clean Selectors.')
   }
 
   return result

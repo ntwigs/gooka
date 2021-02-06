@@ -6,26 +6,26 @@ import { reply } from '../../utils/reply'
 import { handleError } from '../handle-error'
 import { getUsage } from '../get-usage'
 
-type AnalyzeClassnamesProps = {
+type AnalyzeSelectorsProps = {
   files: File[]
   styles: File[]
 }
-export const analyzeClassnames = (
+export const analyzeSelectors = (
   event: IpcMainEvent,
-  args: AnalyzeClassnamesProps,
+  args: AnalyzeSelectorsProps,
 ) => {
   try {
     const { files, styles } = args
-    const { getUnused, getUniqueClassnames } = services.classnames
+    const { getUnused, getUniqueSelectors } = services.Selectors
 
     const fileClasses = files.map(getUsage).flat()
     const styleClasses = styles.map(getClasses).flat()
     const unused = getUnused({ styleClasses, fileClasses })
-    const uniqueClassnames = getUniqueClassnames({
-      classnames: unused,
+    const uniqueSelectors = getUniqueSelectors({
+      Selectors: unused,
     })
 
-    reply<string[]>(event, 'analyze-classnames', uniqueClassnames)
+    reply<string[]>(event, 'analyze-Selectors', uniqueSelectors)
   } catch (error) {
     handleError(event, error)
   }
