@@ -6,29 +6,12 @@ import { Box, Sizes } from '../../atoms/box'
 import files from '../../../assets/gooka_files.png'
 import { useWait } from '../../../utils/use-wait'
 import { useText } from './use-text'
-import { Center } from '../../atoms/center'
+import { Animator } from '../../atoms/animator'
+import { Heading } from '../../atoms/heading'
 
 const Image = styled(motion.img)`
   width: 200px;
   align-self: center;
-`
-
-type H1Props = { isEmpty: boolean }
-
-const H1 = styled(motion.h1)<H1Props>`
-  text-align: center;
-  color: ${({ theme, isEmpty }) =>
-    isEmpty ? theme.colors.delete : theme.colors.button};
-`
-
-const H3 = styled(motion.h3)`
-  text-align: center;
-  max-width: 367px;
-  align-self: center;
-`
-
-const Container = styled.div`
-  padding: 40px 0;
 `
 
 export const FileCompanion = () => {
@@ -46,39 +29,42 @@ export const FileCompanion = () => {
   const updated = title === titleValue ? 'animate' : 'exit'
 
   return (
-    <Center>
-      <Container>
-        <motion.div exit={{ opacity: 0 }}>
-          <Box>
-            <Box marginBottom={Sizes.l}>
-              <Image
-                src={files}
-                variants={variants()}
-                animate="animate"
-                initial="initial"
-                exit="exit"
-              />
-            </Box>
-            <H1
+    <Box center marginTop={Sizes.spacing} marginBottom={Sizes.spacing}>
+      <motion.div exit={{ opacity: 0 }}>
+        <Box>
+          <Box marginBottom={Sizes.l}>
+            <Image
+              src={files}
               variants={variants()}
-              animate={updated}
+              animate="animate"
               initial="initial"
               exit="exit"
-              isEmpty={isEmptyValue}
-            >
-              {titleValue}
-            </H1>
-            <H3
-              variants={variants()}
-              animate={updated}
-              initial="initial"
-              exit="exit"
-            >
-              {subtitleValue}
-            </H3>
+            />
           </Box>
-        </motion.div>
-      </Container>
-    </Center>
+          <Animator
+            variants={variants()}
+            animate={updated}
+            initial="initial"
+            exit="exit"
+          >
+            <Heading align="center" color={isEmptyValue ? 'danger' : 'primary'}>
+              {titleValue}
+            </Heading>
+          </Animator>
+          <Animator
+            variants={variants()}
+            animate={updated}
+            initial="initial"
+            exit="exit"
+          >
+            <Box maxWidth={367}>
+              <Heading appearance="h3" color="default" align="center">
+                {subtitleValue}
+              </Heading>
+            </Box>
+          </Animator>
+        </Box>
+      </motion.div>
+    </Box>
   )
 }

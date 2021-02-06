@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { variants } from '../../../animations/animation'
+import { Animator } from '../../atoms/animator'
 import { Remove } from '../../atoms/remove'
 
 type ContainerProps = {
@@ -40,7 +41,7 @@ export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
   const toggleRemoved = () => setRemoved(!isRemoved)
 
   return (
-    <motion.div variants={variants()}>
+    <Animator variants={variants()}>
       <Container
         isRemoved={isRemoved}
         whileHover="largeHover"
@@ -51,6 +52,6 @@ export const UnnecessaryClassname = ({ name }: UnnecessaryClassnameProps) => {
         <Classname isRemoved={isRemoved}>{name}</Classname>
         <Remove isRemoved={isRemoved} />
       </Container>
-    </motion.div>
+    </Animator>
   )
 }

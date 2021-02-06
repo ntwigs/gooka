@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion'
 import * as React from 'react'
 import { variants } from '../../../animations/animation'
+import { Animator } from '../../atoms/animator'
 import { Box, Sizes } from '../../atoms/box'
+import { Heading } from '../../atoms/heading'
 
 type HeaderProps = {
   title: string
@@ -12,22 +13,20 @@ type HeaderProps = {
 export const Header = ({ title, subtitle, delay = 0 }: HeaderProps) => {
   return (
     <Box marginBottom={Sizes.m} marginTop={Sizes.m}>
-      <motion.div
-        variants={variants(delay)}
-        animate="animate"
-        initial="initial"
-      >
+      <Animator variants={variants(delay)} animate="animate" initial="initial">
         <Box marginBottom={Sizes.s}>
-          <h1>{title}</h1>
+          <Heading color="secondary">{title}</Heading>
         </Box>
-      </motion.div>
-      <motion.div
+      </Animator>
+      <Animator
         variants={variants(delay + 0.2)}
         animate="animate"
         initial="initial"
       >
-        <h3>{subtitle}</h3>
-      </motion.div>
+        <Heading appearance="h3" color="default">
+          {subtitle}
+        </Heading>
+      </Animator>
     </Box>
   )
 }
