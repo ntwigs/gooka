@@ -4,6 +4,7 @@ import { getClasses } from '../get-classes'
 import { services } from '../../services'
 import { reply } from '../../utils/reply'
 import { handleError } from '../handle-error'
+import { getUsage } from '../get-usage'
 
 type AnalyzeClassnamesProps = {
   files: File[]
@@ -17,7 +18,7 @@ export const analyzeClassnames = (
     const { files, styles } = args
     const { getUnused, getUniqueClassnames } = services.classnames
 
-    const fileClasses = files.map(getClasses).flat()
+    const fileClasses = files.map(getUsage).flat()
     const styleClasses = styles.map(getClasses).flat()
     const unused = getUnused({ styleClasses, fileClasses })
     const uniqueClassnames = getUniqueClassnames({
