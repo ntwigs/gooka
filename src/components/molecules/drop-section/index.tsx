@@ -5,10 +5,11 @@ import { File as FileProps } from '../../../../common/types/file'
 import { Dropzone } from '../dropzone'
 import { File } from '../file'
 import { Header } from '../header'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { variants } from '../../../animations/animation'
 import { staggerFiles } from '../../../animations/stagger'
 import { hasElements } from '../../../utils/has-elements'
+import { Animator } from '../../atoms/animator'
 
 type DropSectionProps = {
   title: string
@@ -39,7 +40,7 @@ export const DropSection = ({
       <Header title={title} subtitle={subtitle} delay={delay} />
       <AnimatePresence>
         {hasElements(files) && (
-          <motion.div
+          <Animator
             variants={staggerFiles}
             animate="listIn"
             initial="initial"
@@ -56,10 +57,10 @@ export const DropSection = ({
                 />
               ))}
             </AnimatePresence>
-          </motion.div>
+          </Animator>
         )}
       </AnimatePresence>
-      <motion.div
+      <Animator
         variants={variants(delay + 0.4)}
         animate="animate"
         initial="initial"
@@ -67,7 +68,7 @@ export const DropSection = ({
         <AnimatePresence>
           {!hasMaxFiles && <Dropzone title={dropTitle} onDrop={onDrop} />}
         </AnimatePresence>
-      </motion.div>
+      </Animator>
     </Box>
   )
 }
