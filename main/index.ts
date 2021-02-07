@@ -10,7 +10,8 @@ const getBrowserWindow = () => {
     width: 850,
     height: 850,
     webPreferences: {
-      nodeIntegration: true,
+      contextIsolation: true,
+      preload: `${__dirname}/preload.js`,
     },
   })
 }
