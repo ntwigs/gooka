@@ -1,2 +1,7 @@
-const { ipcRenderer: _ipcRenderer } = window.require('electron')
-export const ipcRenderer = _ipcRenderer
+const _window = window as any // Missing types from preload
+const { on, send } = _window.ipcRenderer
+
+export const ipcRenderer = {
+  on,
+  send,
+}
