@@ -12,7 +12,7 @@ export const useWait = <T>({ value, delay = 0 }: UseWaitProps<T>) => {
     const timeout = setTimeout(() => setValue(value), delay)
 
     return () => clearTimeout(timeout)
-  }, [value])
+  }, [value, delay])
 
   return { value: _value }
 }
