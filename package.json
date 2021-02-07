@@ -1,12 +1,13 @@
 {
   "name": "gooka",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "homepage": ".",
   "main": "build/main/index.js",
   "author": "Oscar Nordquist",
-  "description": "Find your unnecessary css classes",
+  "description": "Find your unnecessary css selectors",
   "build": {
+    "appId": "com.gooka.app",
     "extends": null,
     "files": [
       "build/**/*"
