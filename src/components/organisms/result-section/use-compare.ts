@@ -18,5 +18,5 @@ export const useCompare = () => {
       void dispatch(setSelectors([]))
       send('analyze-selectors', { files, styles })
     }
-  }, [files, styles, dispatch, setSelectors])
+  }, [files, styles, dispatch])
 }
