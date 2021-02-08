@@ -8,8 +8,8 @@ import { hasElements } from '../../../utils/has-elements'
 import { on } from '../../../utils/on'
 
 const setSelectorEvent = (dispatch: Dispatch) => {
-  on('analyze-selectors', (_: unknown, Selectors: string[]) => {
-    const selectorsWithId = Selectors.map((selector) => ({
+  on('analyze-selectors', (_: unknown, selectors: string[]) => {
+    const selectorsWithId = selectors.map((selector) => ({
       name: selector,
       id: uuid(),
     }))
