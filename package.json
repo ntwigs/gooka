@@ -14,6 +14,15 @@
     ],
     "directories": {
       "buildResources": "assets"
+    },
+    "mac": {
+      "target": "zip"
+    },
+    "win": {
+      "target": "portable"
+    },
+    "linux": {
+      "target": "AppImage"
     }
   },
   "dependencies": {
@@ -50,7 +59,7 @@
     "eject": "react-scripts eject",
     "postinstall": "electron-builder install-app-deps",
     "electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p main -w\" \"wait-on http://localhost:3000 && tsc -p main && electron .\"",
-    "electron:build": "yarn build && tsc -p main && electron-builder"
+    "electron:build": "yarn build && tsc -p main && electron-builder -mwl"
   },
   "eslintConfig": {
     "extends": [
