@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
-import * as isDev from 'electron-is-dev'
+import isDev from 'electron-is-dev'
 import { registerEvents } from './events/register-events'
 
 registerEvents()
