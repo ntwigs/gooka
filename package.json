@@ -1,5 +1,6 @@
 {
   "name": "gooka",
+  "productName": "Gooka",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
@@ -7,26 +8,22 @@
   "author": "Oscar Nordquist",
   "description": "Find your unnecessary css selectors",
   "build": {
-    "appId": "com.gooka.app",
     "extends": null,
+    "appId": "com.gooka.app",
     "files": [
-      "build/**/*"
+      "build/**/*",
+      "assets/*",
+      "icons/*"
     ],
     "directories": {
       "buildResources": "assets"
     },
-    "mac": {
-      "target": "zip",
-      "icon": "public/icon.png"
-    },
     "win": {
-      "target": "portable",
-      "icon": "public/icon.png"
+      "target": "portable"
     },
     "linux": {
-      "target": "AppImage",
       "category": "Utility",
-      "icon": "public/icon.png"
+      "target": "AppImage"
     }
   },
   "dependencies": {
@@ -63,7 +60,7 @@
     "eject": "react-scripts eject",
     "postinstall": "electron-builder install-app-deps",
     "electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p main -w\" \"wait-on http://localhost:3000 && tsc -p main && electron .\"",
-    "electron:build": "yarn build && tsc -p main && electron-builder -mwl"
+    "electron:build": "yarn build && tsc -p main && DEBUG=electron-builder electron-builder -l"
   },
   "eslintConfig": {
     "extends": [
