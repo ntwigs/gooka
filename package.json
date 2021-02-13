@@ -58,7 +58,7 @@
     "eject": "react-scripts eject",
     "postinstall": "electron-builder install-app-deps",
     "electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p main -w\" \"wait-on http://localhost:3000 && tsc -p main && electron .\"",
-    "electron:build": "yarn build && tsc -p main && DEBUG=electron-builder electron-builder -l"
+    "electron:build": "yarn build && tsc -p main && electron-builder -l"
   },
   "eslintConfig": {
     "extends": [
