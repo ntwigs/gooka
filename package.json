@@ -14,7 +14,7 @@
       "build/**/*"
     ],
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "public"
     },
     "win": {
       "target": "portable"
