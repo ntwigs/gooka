@@ -6,9 +6,12 @@ import { registerEvents } from './events/register-events'
 registerEvents()
 
 const getBrowserWindow = () => {
+  const icon = path.join(__dirname, '..', '..', 'build/icon.png')
+
   return new BrowserWindow({
     width: 850,
     height: 850,
+    icon,
     webPreferences: {
       contextIsolation: true,
       preload: `${__dirname}/preload.js`,
