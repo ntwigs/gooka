@@ -3,17 +3,17 @@
   "name": "Gooka",
   "icons": [
     {
-      "src": "1024x1024.png",
-      "type": "image/png",
+      "src": "favicon.ico",
+      "type": "image/x-icon",
       "sizes": "64x64 32x32 24x24 16x16"
     },
     {
-      "src": "1024x1024.png",
+      "src": "gooka-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "1024x1024.png",
+      "src": "gooka-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
