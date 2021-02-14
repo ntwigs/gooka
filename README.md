@@ -1,4 +1,4 @@
-
+![icon](https://user-images.githubusercontent.com/14088342/107887804-f4a7ef00-6f08-11eb-8325-8ea2e2d1f214.png)
 
 # Gooka for [Linux](/), [MacOS](/) and [Windows](/)
 The naive and simplified way to find unused css classes.
