@@ -13,6 +13,9 @@ const FileTitle = styled.p`
   font-size: 16px;
   font-weight: bold;
   color: ${(props) => props.theme.colors.fileTitle};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
 
 type FileProps = {
