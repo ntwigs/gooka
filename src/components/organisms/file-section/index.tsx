@@ -19,7 +19,7 @@ export const FileSection = () => {
       <Scroll>
         <Box marginBottom={Sizes.s}>
           <DropSection
-            title="Styles"
+            title="Style"
             subtitle="Drop style to compare with here."
             dropTitle="Drop style here"
             onDrop={onStyleDrop}
