@@ -8,15 +8,15 @@
 
 ### What's this?
 
-Are you still using css-outside-JS (also known as just "css") - and you know that there _might_ be some old css classes that are no longer in use? Such as `.deleteLater` and `.testing123`? But you're also quite sure about not wanting something fully automatic - so you know that you're in control? Then **Gooka** is for you!
+Are you still using CSS-outside-JS (also known as just "CSS") - and you know that there _might_ be some old CSS classes that are no longer in use? Such as `.deleteLater` and `.testing123`? But you're also quite sure about not wanting something fully automatic - so you know that you're in control? Then **Gooka** is for you!
 
-Gooka is an easy way to find unused css classes in your code. It basically takes a css file and some non-css files and searches for the selectors inside those files. If no unused selectors are found, **congratulations**. But if Gooka finds some unused selectors - you'll get a list of those selectors, and manually delete them.
+Gooka is an easy way to find unused CSS classes in your code. It takes a CSS file and some non-CSS files and searches for the selectors inside those files. If no unused selectors are found, **congratulations**. But if Gooka finds some unused selectors - you'll get a list of those selectors, and manually delete them.
 
 // INSERT GIFS HERE.
 
 ### Why this?
 
-Using scripts such as [PurgeCSS](https://github.com/FullHuman/purgecss), [PurifyCSS](https://github.com/purifycss/purifycss), and [UnCSS](https://github.com/uncss/uncss) is scary. Especially if you're working in a humongus project. Therefore, I created something more manual in order to be more selective in my selector deletions.
+Using scripts such as [PurgeCSS](https://github.com/FullHuman/purgecss), [PurifyCSS](https://github.com/purifycss/purifycss), and [UnCSS](https://github.com/uncss/uncss) is scary. Especially if you're working on a humongous project. Therefore, I created something more manual to be more selective in my selector deletions.
 
 ### Pitfalls
 
