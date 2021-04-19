@@ -17,7 +17,8 @@ Are you still using CSS-outside-JS (also known as just "CSS") - and you know tha
 
 Gooka is an easy way to find unused CSS classes in your code. It takes a CSS file and some non-CSS files and searches for the selectors inside those files. If no unused selectors are found, **congratulations**. But if Gooka finds some unused selectors - you'll get a list of those selectors, and  you'll be able to manually delete them. Also - there's a **darkmode**!
 
-// INSERT GIFS HERE.
+
+![gooka-gif](https://user-images.githubusercontent.com/14088342/115273038-5a9a3800-a13f-11eb-8118-8ccb3a60bcda.gif)
 
 
 ### Why this?
