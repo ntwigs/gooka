@@ -1,7 +1,7 @@
 {
   "name": "gooka",
   "productName": "Gooka",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "homepage": ".",
   "main": "build/main/index.js",
