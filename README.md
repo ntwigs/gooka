@@ -11,7 +11,7 @@
 
 ---
 
-### What's this?
+## What's this?
 
 Are you still using CSS-outside-JS (also known as just "CSS") - and you know that there _might_ be some old CSS selectors that are no longer in use? Such as `.deleteLater` and `.testing123`? But you're also quite sure about not wanting something fully automatic - so you know that you're in control? Then **Gooka** is for you!
 
@@ -21,15 +21,15 @@ Gooka is an easy way to find unused CSS classes in your code. It takes a CSS fil
 ![gooka-gif](https://user-images.githubusercontent.com/14088342/115273038-5a9a3800-a13f-11eb-8118-8ccb3a60bcda.gif)
 
 
-### Why this?
+## Why this?
 
 Using scripts such as [PurgeCSS](https://github.com/FullHuman/purgecss), [PurifyCSS](https://github.com/purifycss/purifycss), and [UnCSS](https://github.com/uncss/uncss) is scary. Especially if you're working on a humongous project. Therefore, I created something more manual to be more selective in my selector deletions.
 
-### Pitfalls
+## Pitfalls
 
 It's extremely naive. Let's say you have a selector called `.red` - and you add a file called `explaining-colors.ts` which contains a string `red`. It will take that as a "Ah, `.red` is being used here!". Which it isn't.
 
-### Development prerequisites
+## Development prerequisites
 
 So you're going to join the fun world of Gooka - and you're going to give it everything you have? Nice! This is what you'll need.
 
@@ -40,7 +40,7 @@ So you're going to join the fun world of Gooka - and you're going to give it eve
 If you're going to be building the app - it easier with:
 4. [Docker](https://docs.docker.com/get-docker/)
 
-### Develop on Linux
+## Develop on Linux
 
 It should be super simple to get going - as long as you have the prerequisites.
 
@@ -48,7 +48,7 @@ It should be super simple to get going - as long as you have the prerequisites.
 2. Install packages with `yarn`.
 3. Start development with `yarn electron:dev`.
 
-### Develop in windows
+## Develop in windows
 
 Basically the same as above. Except it's Windows.
 
@@ -56,7 +56,7 @@ Basically the same as above. Except it's Windows.
 2. Install packages with `yarn`.
 3. Start development with `yarn electron:windows`.
 
-### Build for production
+## Build for production
 
 We're building for Linux and Windows! *Woo!*
 
@@ -71,3 +71,6 @@ We're building for Linux and Windows! *Woo!*
 2. Run `yarn electron:build`.
 3. Now there should be a folder called `dist` containing both a `Gooka.x.x.x.exe` and a `Gooka-x.x.x.AppImage`.
 
+### License
+
+MIT
