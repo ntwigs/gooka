@@ -15,7 +15,7 @@
 
 Are you still using CSS-outside-JS (also known as just "CSS") - and you know that there _might_ be some old CSS selectors that are no longer in use? Such as `.deleteLater` and `.testing123`? But you're also quite sure about not wanting something fully automatic - so you know that you're in control? Then **Gooka** is for you!
 
-Gooka is an easy way to find unused CSS classes in your code. It takes a CSS file and some non-CSS files and searches for the selectors inside those files. If no unused selectors are found, **congratulations**. But if Gooka finds some unused selectors - you'll get a list of those selectors, and  you'll be able to manually delete them. Also - there's a **darkmode**!
+Gooka is an easy way to find unused CSS classes in your code. It takes a CSS file and some non-CSS files and searches for the selectors inside those files. If no unused selectors are found, **congratulations**. But if Gooka finds some unused selectors - you'll get a list of those selectors, and you'll be able to manually delete them. Also - there's a **dark mode**!
 
 
 ![gooka-gif](https://user-images.githubusercontent.com/14088342/115273038-5a9a3800-a13f-11eb-8118-8ccb3a60bcda.gif)
@@ -29,7 +29,7 @@ Using scripts such as [PurgeCSS](https://github.com/FullHuman/purgecss), [Purify
 
 It's extremely naive. Let's say you have a selector called `.red` - and you add a file called `explaining-colors.ts` which contains a string `red`. It will take that as a "Ah, `.red` is being used here!". Which it isn't.
 
-### Developmen prerequisites
+### Development prerequisites
 
 So you're going to join the fun world of Gooka - and you're going to give it everything you have? Nice! This is what you'll need.
 
@@ -58,7 +58,7 @@ Basically the same as above. Except it's Windows.
 
 ### Build for production
 
-We're build for Linux and Windows! *Woo!*
+We're building for Linux and Windows! *Woo!*
 
 1. Start the script `build-with-docker` - with the command: `bash build-with-docker`.
 
