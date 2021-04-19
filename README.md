@@ -48,7 +48,7 @@ It should be super simple to get going - as long as you have the prerequisites.
 2. Install packages with `yarn`.
 3. Start development with `yarn electron:dev`.
 
-## Develop in windows
+## Develop on Windows
 
 Basically the same as above. Except it's Windows.
 
